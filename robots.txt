@@ -165,7 +165,7 @@ Disallow: /
 # ================ Sitemap 声明 ================
 
 # 网站地图位置
-Sitemap: https://你的用户名.github.io/你的仓库名/sitemap.xml
+# Sitemap: https://你的用户名.github.io/你的仓库名/sitemap.xml
 
 # 如果需要，可以添加其他 sitemap
 # Sitemap: https://你的用户名.github.io/你的仓库名/sitemap-images.xml
