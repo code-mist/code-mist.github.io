@@ -9,7 +9,7 @@ const photos = [
         src: 'images/2024-06-01-birthday-party.jpg', 
         caption: '2024生日派对上的小寿星！', 
         class: 'wide',
-        tags: ['生日', '派对'] 
+        tags: ['生日'] 
     },
     { 
         src: 'images/2024-05-15-hiking.jpg', 
@@ -21,7 +21,7 @@ const photos = [
         src: 'images/2023-10-20-cat-friend.jpg', 
         caption: '2023年春天，第一次看到小花猫。', 
         class: '',
-        tags: ['日常', '宠物']
+        tags: ['日常']
     },
     { 
         src: 'images/2024-07-10-beach-day.jpg', 
