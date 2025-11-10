@@ -1,0 +1,171 @@
+# robots.txt for 宝贝照片墙
+# 生成时间: 2025年
+# 网站: https://code-mist.github.io/
+
+User-agent: *
+Allow: /
+Allow: /css/
+Allow: /js/
+Allow: /assets/
+
+# 🚫 禁止爬取 images 文件夹及其内容
+Disallow: /images/
+Disallow: /images/*.jpg
+Disallow: /images/*.jpeg
+Disallow: /images/*.png
+Disallow: /images/*.gif
+Disallow: /images/*.webp
+
+# 其他禁止目录（根据实际情况调整）
+Disallow: /private/
+Disallow: /admin/
+Disallow: /tmp/
+
+# 爬虫延迟设置（减轻服务器压力）
+Crawl-delay: 2
+
+# ================ 搜索引擎专用配置 ================
+
+# 百度蜘蛛 (Baiduspider)
+User-agent: Baiduspider
+Allow: /
+Allow: /css/
+Allow: /js/
+Allow: /assets/
+Disallow: /images/
+Disallow: /images/*.jpg
+Disallow: /images/*.jpeg
+Disallow: /images/*.png
+Disallow: /images/*.gif
+Crawl-delay: 3
+
+# 百度图片蜘蛛 (Baiduspider-image)
+User-agent: Baiduspider-image
+Disallow: /
+# 专门禁止百度图片蜘蛛抓取所有内容
+
+# 360蜘蛛
+User-agent: 360Spider
+Allow: /
+Allow: /css/
+Allow: /js/
+Allow: /assets/
+Disallow: /images/
+Disallow: /images/*.jpg
+Disallow: /images/*.jpeg
+Disallow: /images/*.png
+Disallow: /images/*.gif
+Crawl-delay: 2
+
+# 搜狗蜘蛛
+User-agent: Sogou web spider
+Allow: /
+Allow: /css/
+Allow: /js/
+Allow: /assets/
+Disallow: /images/
+Disallow: /images/*.jpg
+Disallow: /images/*.jpeg
+Disallow: /images/*.png
+Disallow: /images/*.gif
+Crawl-delay: 3
+
+# 搜狗图片蜘蛛
+User-agent: Sogou Pic Spider
+Disallow: /
+# 专门禁止搜狗图片蜘蛛
+
+# 必应蜘蛛 (Bing)
+User-agent: bingbot
+Allow: /
+Allow: /css/
+Allow: /js/
+Allow: /assets/
+Disallow: /images/
+Disallow: /images/*.jpg
+Disallow: /images/*.jpeg
+Disallow: /images/*.png
+Disallow: /images/*.gif
+Crawl-delay: 2
+
+# 谷歌蜘蛛 (Googlebot)
+User-agent: Googlebot
+Allow: /
+Allow: /css/
+Allow: /js/
+Allow: /assets/
+Disallow: /images/
+Disallow: /images/*.jpg
+Disallow: /images/*.jpeg
+Disallow: /images/*.png
+Disallow: /images/*.gif
+Crawl-delay: 2
+
+# 谷歌图片蜘蛛
+User-agent: Googlebot-Image
+Disallow: /
+# 专门禁止谷歌图片蜘蛛
+
+# ================ 其他常见爬虫 ================
+
+# 字节跳动蜘蛛
+User-agent: Bytespider
+Allow: /
+Allow: /css/
+Allow: /js/
+Allow: /assets/
+Disallow: /images/
+Disallow: /images/*.jpg
+Disallow: /images/*.jpeg
+Disallow: /images/*.png
+Disallow: /images/*.gif
+Crawl-delay: 2
+
+# 神马搜索蜘蛛
+User-agent: YisouSpider
+Allow: /
+Allow: /css/
+Allow: /js/
+Allow: /assets/
+Disallow: /images/
+Disallow: /images/*.jpg
+Disallow: /images/*.jpeg
+Disallow: /images/*.png
+Disallow: /images/*.gif
+Crawl-delay: 2
+
+# 头条搜索蜘蛛
+User-agent: ToutiaoSpider
+Allow: /
+Allow: /css/
+Allow: /js/
+Allow: /assets/
+Disallow: /images/
+Disallow: /images/*.jpg
+Disallow: /images/*.jpeg
+Disallow: /images/*.png
+Disallow: /images/*.gif
+Crawl-delay: 2
+
+# ================ 恶意爬虫限制 ================
+
+# 限制一些已知的恶意爬虫
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# ================ Sitemap 声明 ================
+
+# 网站地图位置
+Sitemap: https://你的用户名.github.io/你的仓库名/sitemap.xml
+
+# 如果需要，可以添加其他 sitemap
+# Sitemap: https://你的用户名.github.io/你的仓库名/sitemap-images.xml
