@@ -171,7 +171,7 @@ git push origin main
 
 # 改进
 
-#### 对于图片：
+## 对于图片：
 
 - **GitHub Issues**：上传图片到 Issue，获取 CDN 链接
 - **Imgur**、**Google Photos** 等免费图床
@@ -186,7 +186,45 @@ git push origin main
 | **ImgBB**         | **完全免费**          | ✅ 优秀   | 简单易用，无需注册     |
 | **GitHub Issues** | **完全免费**          | ✅ 良好   | 利用 GitHub 自身服务   |
 
-#### 对于视频：
+#### 个人项目/文档：
+
+markdown
+
+```
+**推荐：Imgur**
+- 完全免费
+- 无数量限制
+- 链接永久有效
+- 无需注册（但注册更好管理）
+```
+
+
+
+#### 专业项目/网站：
+
+markdown
+
+```
+**推荐：Cloudinary**
+- 免费额度足够
+- 支持图片优化、裁剪、格式转换
+- CDN 加速
+```
+
+
+
+#### 技术文档/GitHub项目：
+
+markdown
+
+```
+**推荐：GitHub Issues**
+- 完全在 GitHub 生态内
+- 链接稳定
+- 适合技术截图、演示图
+```
+
+## 对于视频：
 
 - **YouTube**（设为**<u>未列出</u>**）
 
