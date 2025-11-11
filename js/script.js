@@ -5,51 +5,531 @@ const DEFAULT_VIDEO_POSTER = 'assets/images/default-video-poster.jpg';
 
 // =================================================================
 // ⭐️ 照片数据列表 (所有 src 路径已修正)
+// caption为照片描述性文字，cllass照片样式，tags自定义分组，type:image/video
 // =================================================================
 const photos = [
+    /* 下面为照片文件添加 */
     { 
-        src: 'assets/images/2024-06-01-birthday-party.jpg', 
-        caption: '2024生日派对上的小寿星！', 
-        class: 'wide',
-        tags: ['生日'],
-        type: 'image'
-    },
-    { 
-        src: 'assets/videos/2024-05-15-first-steps.mp4', 
-        caption: '学走路的珍贵瞬间，迈出了第一步！', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/images/2023-10-20-cat-friend.jpg', 
-        caption: '2023年春天，第一次看到小花猫。', 
-        class: '',
-        tags: ['日常'],
-        type: 'image'
-    },
-    { 
-        src: 'assets/images/2024-07-10-beach-day.jpg', 
-        caption: '在海边玩沙子，笑得可甜了。', 
-        class: '',
-        tags: ['旅行', '户外'],
-        type: 'image'
-    },
-    { 
-        src: 'assets/videos/2024-07-20-swing.mp4', 
-        caption: '公园里荡秋千，开心地咯咯笑。', 
-        class: 'tall',
-        tags: ['户外'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/images/2024-01-05-shoes.jpg', 
+        src: 'assets/images/2025-02-28-001.jpg', 
         caption: '自己学会了穿鞋子，好棒！', 
         class: '',
         tags: ['日常'],
         type: 'image'
     },
-    // 请在这里继续添加您的照片或视频数据，确保路径以 assets/images/ 或 assets/videos/ 开头
+    { 
+        src: 'assets/images/2025-02-28-002.jpg', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'image'
+    },
+    { 
+        src: 'assets/images/2025-02-28-003.jpg', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'image'
+    },
+    { 
+        src: 'assets/images/2025-02-28-004.jpg', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'image'
+    },
+    { 
+        src: 'assets/images/2025-02-28-005.jpg', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'image'
+    },
+    { 
+        src: 'assets/images/2025-02-28-006.jpg', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'image'
+    },
+    { 
+        src: 'assets/images/2025-02-28-007.jpg', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'image'
+    },
+    { 
+        src: 'assets/images/2025-02-28-008.jpg', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'image'
+    },
+    { 
+        src: 'assets/images/2025-02-28-009.jpg', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'image'
+    },
+    { 
+        src: 'assets/images/2025-02-28-010.jpg', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'image'
+    },
+    { 
+        src: 'assets/images/2025-02-28-011.jpg', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'image'
+    },
+    { 
+        src: 'assets/images/2025-02-28-012.jpg', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'image'
+    },
+    { 
+        src: 'assets/images/2025-02-28-013.jpg', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'image'
+    },
+    { 
+        src: 'assets/images/2025-02-28-014.jpg', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'image'
+    },
+    { 
+        src: 'assets/images/2025-02-28-015.jpg', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'image'
+    },
+    { 
+        src: 'assets/images/2025-02-28-016.jpg', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'image'
+    },
+    { 
+        src: 'assets/images/2025-02-28-017.jpg', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'image'
+    },
+    { 
+        src: 'assets/images/2025-02-28-018.jpg', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'image'
+    },
+    { 
+        src: 'assets/images/2025-02-28-019.jpg', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'image'
+    },
+    { 
+        src: 'assets/images/2025-02-28-020.jpg', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'image'
+    },
+    { 
+        src: 'assets/images/2025-02-28-021.jpg', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'image'
+    },
+    
+    
+    /* 下面为视频文件添加 */
+    { 
+        src: 'assets/videos/2025-02-28-001.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-002.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-003.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-004.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-005.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-006.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-007.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-008.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-009.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-010.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-011.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-012.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-013.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-014.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-015.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-016.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-017.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-018.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-019.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-020.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-021.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-022.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-023.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-024.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-025.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-026.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-027.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-028.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-029.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-030.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-031.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-032.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-033.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-034.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-035.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-036.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-037.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-038.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-039.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-040.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-041.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-042.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-043.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-044.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-045.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-046.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-047.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-048.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-049.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-050.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-051.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-052.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
+    { 
+        src: 'assets/videos/2025-02-28-053.mp4', 
+        caption: '', 
+        class: '',
+        tags: ['日常'],
+        type: 'video', 
+    },
 ];
 
 // 优化：为没有指定 type 的项添加默认值 'image'
