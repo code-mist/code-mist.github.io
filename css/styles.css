@@ -1,43 +1,36 @@
 /* ==================================== */
-/* ⭐️ 1. 字体声明 (@font-face) - 引用本地字体文件 ⭐️ */
-/* 请确保您的字体文件位于 assets/fonts 文件夹下 */
+/* 字体声明 (@font-face) - 引用本地字体文件 */
 /* ==================================== */
-
-/* 引入中文可爱手写体：Zhi Mang Xing */
 @font-face {
     font-family: 'Zhi Mang Xing';
-    src: url('assets/fonts/ZhiMangXing-Regular.woff2') format('woff2');
+    /* ⭐️ 路径修正：指向 assets/fonts 文件夹 ⭐️ */
+    src: url('../assets/fonts/ZhiMangXing-Regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
-    font-display: swap; /* 确保字体加载不会阻塞页面渲染 */
+    font-display: swap; 
 }
-
-/* 引入英文艺术字体：Sacramento (用于装饰标题或描述) */
 @font-face {
     font-family: 'Sacramento';
-    src: url('assets/fonts/Sacramento-Regular.woff2') format('woff2');
+    /* ⭐️ 路径修正：指向 assets/fonts 文件夹 ⭐️ */
+    src: url('../assets/fonts/ZhiMangXing-Regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 
 /* ==================================== */
-/* 整体风格与排版 */
+/* 整体风格与排版 (无路径变化，保持不变) */
 /* ==================================== */
 :root {
-    /* 视觉优化：柔和的马卡龙色系主题变量 */
-    --color-primary: #FFADAD; /* 柔和的桃粉色 */
-    --color-secondary: #9DE0AD; /* 柔和的薄荷绿 (用于焦点/强调) */
-    --color-background: #FDFDFD; /* 接近纯白，更干净 */
+    --color-primary: #FFADAD; 
+    --color-secondary: #9DE0AD; 
+    --color-background: #FDFDFD; 
     --color-text: #444444; 
     --shadow-light: 0 6px 20px rgba(0, 0, 0, 0.1); 
     --shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
-/* ⭐️ UX优化：平滑滚动 */
-html {
-    scroll-behavior: smooth; 
-}
+html { scroll-behavior: smooth; }
 
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -49,7 +42,6 @@ body {
     transition: background-color 0.5s;
 }
 
-/* ⭐️ 视觉优化：高级标题排版 */
 h1 {
     font-family: 'Zhi Mang Xing', 'Sacramento', cursive, sans-serif; 
     color: var(--color-primary);
@@ -63,11 +55,10 @@ h1 {
 
 
 /* ==================================== */
-/* 照片墙布局 - 自适应核心 */
+/* 照片墙布局 - 自适应核心 (无路径变化，保持不变) */
 /* ==================================== */
 .photo-wall {
     display: grid;
-    /* 核心自适应：最小 220px 宽度，自动调整列数 */
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
     gap: 20px;
     padding: 20px;
@@ -78,20 +69,16 @@ h1 {
 .photo-item {
     position: relative;
     overflow: hidden;
-    /* 视觉优化：画框效果 */
     border-radius: 10px;
     box-shadow: var(--shadow-light); 
     cursor: pointer;
     aspect-ratio: 1 / 1; 
     transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
     outline: none; 
-    
-    /* 视觉优化：增加一个白色内边框，模拟画框 */
     border: 5px solid white; 
     box-sizing: border-box; 
 }
 
-/* ⭐️ UX优化：键盘聚焦时的样式 */
 .photo-item:focus {
     outline: 3px solid var(--color-secondary); 
     outline-offset: 5px;
@@ -99,11 +86,11 @@ h1 {
 
 .photo-item:hover {
     box-shadow: var(--shadow-hover);
-    /* 视觉优化：悬浮时轻微抬升和旋转 */
     transform: translateY(-8px) rotate(1deg); 
 }
 
-.photo-item img {
+.photo-item img,
+.photo-item video { 
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -111,8 +98,27 @@ h1 {
     transition: transform 0.5s ease-in-out; 
 }
 
-.photo-item:hover img {
+.photo-item:hover img,
+.photo-item:hover video { 
     transform: scale(1.08);
+}
+
+.photo-item.is-video::after {
+    content: '▶️'; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3em;
+    color: white;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    opacity: 0.8;
+    pointer-events: none; 
+    transition: opacity 0.3s;
+}
+
+.photo-item.is-video:hover::after {
+    opacity: 1;
 }
 
 /* 定制化布局 */
@@ -120,7 +126,7 @@ h1 {
 .photo-item.tall { grid-row: span 2; aspect-ratio: unset; }
 
 /* ==================================== */
-/* ⭐️ UX优化：加载占位符 (Skeleton) 样式 */
+/* 加载占位符 (Skeleton) 样式 (无路径变化，保持不变) */
 /* ==================================== */
 .skeleton {
     background-color: #e0e0e0;
@@ -128,7 +134,7 @@ h1 {
     position: relative;
     overflow: hidden;
     aspect-ratio: 1 / 1;
-    border: 5px solid white; /* 与照片样式保持一致 */
+    border: 5px solid white;
     animation: loading-pulse 1.5s infinite linear; 
 }
 
@@ -143,7 +149,7 @@ h1 {
 
 
 /* ==================================== */
-/* 描述文字 (Caption) 悬浮显示 */
+/* 描述文字 (Caption) 悬浮显示 (无路径变化，保持不变) */
 /* ==================================== */
 .photo-caption {
     position: absolute;
@@ -151,10 +157,8 @@ h1 {
     left: 0;
     width: 100%;
     padding: 15px 12px;
-    /* 柔和渐变背景 */
     background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)); 
     color: white;
-    /* 视觉优化：描述文字可使用 Sacramento 字体 */
     font-family: 'Sacramento', 'Helvetica Neue', Arial, sans-serif; 
     font-size: 1.2em;
     opacity: 0; 
@@ -170,7 +174,7 @@ h1 {
 }
 
 /* ==================================== */
-/* Lightbox (模态框) - 稳定优化 */
+/* Lightbox (模态框) (无路径变化，保持不变) */
 /* ==================================== */
 .lightbox {
     position: fixed; 
@@ -179,16 +183,12 @@ h1 {
     top: 0;
     width: 100%;
     height: 100%;
-    
-    /* 核心优化：使用 opacity 和 visibility 实现隐藏/显示，保证流畅 */
     visibility: hidden; 
     opacity: 0;        
-    
     background-color: rgba(0, 0, 0, 0.9); 
     display: flex;
     justify-content: center;
     align-items: center;
-    
     transition: opacity 0.3s ease, visibility 0.3s ease; 
 }
 
@@ -204,13 +204,19 @@ h1 {
     cursor: default;
 }
 
-.lightbox-image {
+.lightbox-media-container {
+    max-width: 100%;
+    max-height: 80vh; 
+    margin: auto;
+}
+
+.lightbox-media-container img,
+.lightbox-media-container video { 
     display: block;
     max-width: 100%;
     max-height: 80vh; 
     border-radius: 5px;
     margin: auto;
-    /* 性能优化：强制浏览器使用 GPU 渲染 */
     transform: translateZ(0); 
 }
 
@@ -235,7 +241,7 @@ h1 {
 }
 
 /* ==================================== */
-/* 媒体查询 (移动端适配) */
+/* 媒体查询 (移动端适配) (无路径变化，保持不变) */
 /* ==================================== */
 @media (max-width: 600px) {
     h1 { 
@@ -243,22 +249,21 @@ h1 {
         letter-spacing: 2px;
     }
     .photo-wall { gap: 10px; }
-    /* 确保在手机上所有照片和骨架屏都只占一列 */
     .photo-item, .skeleton {
         grid-column: span 1 !important;
         grid-row: span 1 !important;
         aspect-ratio: 1 / 1;
-        border-width: 3px; /* 减小移动端边框 */
+        border-width: 3px; 
     }
 }
 /* ==================================== */
-/* ⭐️ 可扩展性优化：控制栏样式 ⭐️ */
+/* 控制栏样式 (无路径变化，保持不变) */
 /* ==================================== */
 .controls-bar {
     display: flex;
-    justify-content: center; /* 居中显示 */
+    justify-content: center; 
     align-items: center;
-    flex-wrap: wrap; /* 确保在小屏幕上换行 */
+    flex-wrap: wrap; 
     gap: 15px;
     margin-bottom: 30px;
     padding: 0 20px;
@@ -277,7 +282,7 @@ h1 {
 .filter-btn, .sort-select {
     padding: 8px 15px;
     border: 2px solid var(--color-primary);
-    border-radius: 20px; /* 圆角按钮 */
+    border-radius: 20px; 
     background-color: transparent;
     color: var(--color-primary);
     font-size: 1em;
@@ -288,7 +293,7 @@ h1 {
 }
 
 .filter-btn:hover, .sort-select:hover {
-    background-color: rgba(255, 173, 173, 0.1); /* 柔和的悬停背景 */
+    background-color: rgba(255, 173, 173, 0.1); 
 }
 
 .filter-btn.active {
@@ -299,7 +304,7 @@ h1 {
 
 .sort-select {
     min-width: 180px;
-    appearance: none; /* 移除浏览器默认的下拉箭头 */
+    appearance: none; 
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FFADAD'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 10px center;

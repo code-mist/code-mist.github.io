@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>✨ 宝贝外甥女的照片墙 ✨</title>
 
-    <!-- 🔍 SEO 优化 -->
     <meta name="description" content="记录宝贝外甥女成长的美好瞬间，生日派对、户外旅行、日常生活照片合集">
     <meta name="keywords" content="宝宝照片,成长记录,儿童摄影,家庭记忆,宝贝成长">
     <meta name="author" content="jinmajue">
     
-    <!-- Open Graph 社交媒体优化 -->
     <meta property="og:title" content="✨ 宝贝外甥女的照片墙 ✨">
     <meta property="og:description" content="记录小公主成长的美好瞬间，每一个笑容都值得珍藏">
     <meta property="og:type" content="website">
@@ -18,21 +16,8 @@
     <meta property="og:site_name" content="宝贝成长照片墙">
     <meta property="og:locale" content="zh_CN">
 
-        <!-- 微信分享优化 -->
     <meta itemprop="name" content="✨ 宝贝外甥女的成长照片墙 ✨">
     <meta itemprop="description" content="记录小公主成长的美好瞬间，分享家庭快乐时光">
-    <!-- QQ/QQ空间分享优化 -->
-    <meta itemscope itemtype="http://schema.org/WebPage">
-    <meta itemprop="name" content="宝贝成长照片墙">
-
-    <!-- 国内主流浏览器优化 -->
-    <meta name="renderer" content="webkit">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <!-- 移动端优化 -->
-    <meta name="applicable-device" content="pc,mobile">
-    <meta name="mobile-agent" content="format=html5;url=当前页面URL">
-    <!-- 禁止转码（针对手机浏览器） -->
-    <meta http-equiv="Cache-Control" content="no-siteapp">
 
     <link rel="stylesheet" href="css/styles.css"> 
 </head>
@@ -55,12 +40,13 @@
         <div class="skeleton"></div>
         <div class="skeleton wide"></div>
         <div class="skeleton"></div>
-        </div>
+    </div>
 
     <div id="lightbox" class="lightbox" onclick="closeLightbox()">
         <span class="close-btn" onclick="event.stopPropagation()">&times;</span>
         <div class="lightbox-content" onclick="event.stopPropagation()">
-            <img id="lightboxImage" class="lightbox-image" src="" alt="放大照片">
+            <div id="lightboxMediaContainer" class="lightbox-media-container">
+                </div>
             <p id="lightboxCaption" class="lightbox-caption"></p>
         </div>
     </div>
