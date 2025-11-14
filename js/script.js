@@ -1,11 +1,5 @@
 // =================================================================
-// ⭐️ 默认设置 (已移除视频封面) ⭐️
-// =================================================================
-// (DEFAULT_VIDEO_POSTER 已删除)
-
-// =================================================================
-// ⭐️ 照片数据列表 (所有 src 路径已修正)
-// caption为照片描述性文字，cllass照片样式，tags自定义分组，type:image/video
+// ⭐️ 照片数据列表 (保持不变)
 // =================================================================
 const photos = [
     /* 下面为照片文件添加 */
@@ -156,17 +150,10 @@ const photos = [
         tags: ['日常'],
         type: 'image'
     },
-    
-    
-    /* 已删除：所有 type: 'video' 的条目 
-    */
 ];
 
-// 已删除：用于设置默认 type 的 forEach 循环
-
-
 // =================================================================
-// 💻 渲染和交互逻辑 (内部逻辑不变，路径已通过常量和 photos 数组修正)
+// 💻 渲染和交互逻辑
 // =================================================================
 const photoWall = document.getElementById('photoWall');
 const lightbox = document.getElementById('lightbox');
@@ -179,9 +166,14 @@ const sortSelect = document.getElementById('sortOrder');
 let currentFilter = 'all'; 
 let currentSort = 'desc'; 
 
+// --- 新增：用于导航和幻灯片的全局变量 ---
+let currentPhotoIndex = 0;
+let currentDisplayedPhotos = []; // 存储当前显示的照片列表（用于导航）
+let slideshowInterval = null; // 幻灯片计时器
+const SLIDESHOW_SPEED = 3000; // 幻灯片速度 (3秒)
+
 // --- 辅助函数：获取照片的日期 ---
 function getDateFromSrc(src) {
-    // 适配新的路径格式，只匹配日期部分
     const match = src.match(/(\d{4}-\d{2}-\d{2})/); 
     return match ? match[1] : '0000-00-00';
 }
@@ -207,27 +199,26 @@ function filterPhotos(data) {
     return data.filter(photo => photo.tags && photo.tags.includes(currentFilter));
 }
 
-// --- 主渲染函数：应用筛选和排序 (已简化) ---
+// --- 主渲染函数：(已修改) ---
 function renderPhotoWall() {
-    let displayPhotos = [...photos]; 
-    
-    displayPhotos = filterPhotos(displayPhotos);
-    displayPhotos = sortPhotos(displayPhotos);
+    // 1. 更新全局的照片数组
+    currentDisplayedPhotos = [...photos]; 
+    currentDisplayedPhotos = filterPhotos(currentDisplayedPhotos);
+    currentDisplayedPhotos = sortPhotos(currentDisplayedPhotos);
 
     photoWall.innerHTML = ''; 
 
-    if (displayPhotos.length === 0) {
+    if (currentDisplayedPhotos.length === 0) {
         photoWall.innerHTML = '<p style="grid-column: 1 / -1; margin-top: 50px; font-size: 1.5em; color: #aaa;">没有找到匹配当前标签的照片。</p>';
         return;
     }
 
-    displayPhotos.forEach(photo => {
+    // 2. 修改 forEach，传入 index
+    currentDisplayedPhotos.forEach((photo, index) => {
         const item = document.createElement('div');
-        // 已修改：移除 is-video 逻辑
         item.className = `photo-item ${photo.class || ''}`; 
         item.tabIndex = 0; 
 
-        // 已修改：始终创建 img 元素
         let mediaElement = document.createElement('img'); 
         mediaElement.src = photo.src;
         mediaElement.alt = photo.caption;
@@ -237,7 +228,8 @@ function renderPhotoWall() {
         captionDiv.classList.add('photo-caption');
         captionDiv.textContent = photo.caption;
 
-        const openLightboxHandler = () => openLightbox(photo); 
+        // 3. 修改点击处理，传入 index
+        const openLightboxHandler = () => openLightbox(index); 
         item.onclick = openLightboxHandler;
 
         item.addEventListener('keydown', (e) => {
@@ -295,31 +287,99 @@ function setupControls() {
 }
 
 
-// --- Lightbox 函数 (已简化为仅图片) ---
-function openLightbox(photo) {
+// --- Lightbox 函数 (已重构) ---
+
+// 新增：显示指定索引的照片
+function showPhoto(index) {
+    // 边界检查和循环
+    if (index >= currentDisplayedPhotos.length) {
+        index = 0; // 循环到第一张
+    } else if (index < 0) {
+        index = currentDisplayedPhotos.length - 1; // 循环到最后一张
+    }
+    
+    currentPhotoIndex = index;
+    const photo = currentDisplayedPhotos[currentPhotoIndex];
+
+    if (!photo) return; // 安全检查
+
     lightboxMediaContainer.innerHTML = '';
     lightboxCaption.textContent = photo.caption;
 
-    // 已修改：始终创建 img 元素
     let mediaElement = document.createElement('img');
     mediaElement.src = photo.src;
     mediaElement.alt = photo.caption;
+
+    // 添加淡入效果
+    mediaElement.style.opacity = 0;
+    mediaElement.onload = () => {
+        mediaElement.style.transition = 'opacity 0.3s';
+        mediaElement.style.opacity = 1;
+    };
     
     lightboxMediaContainer.appendChild(mediaElement);
-    
-    lightbox.classList.add('show');
-    document.body.style.overflow = 'hidden'; 
 }
 
+// 修改：openLightbox 现在只打开遮罩并调用 showPhoto
+function openLightbox(index) {
+    lightbox.classList.add('show');
+    document.body.style.overflow = 'hidden'; 
+    showPhoto(index); // 显示点击的照片
+}
+
+// 新增：上一张 / 下一张
+window.showNext = function() {
+    showPhoto(currentPhotoIndex + 1);
+}
+
+window.showPrevious = function() {
+    showPhoto(currentPhotoIndex - 1);
+}
+
+// 新增：切换幻灯片
+window.toggleSlideshow = function() {
+    const toggleBtn = document.getElementById('slideshow-toggle');
+    if (slideshowInterval) {
+        // 正在播放 -> 停止
+        clearInterval(slideshowInterval);
+        slideshowInterval = null;
+        toggleBtn.textContent = '▶️'; // 设为播放图标
+    } else {
+        // 已停止 -> 开始播放
+        toggleBtn.textContent = '⏸️'; // 设为暂停图标
+        
+        // 立即播放下一张，然后设置定时器
+        showNext(); 
+        slideshowInterval = setInterval(() => {
+            showNext();
+        }, SLIDESHOW_SPEED);
+    }
+}
+
+// 修改：关闭 Lightbox (必须停止幻灯片)
 window.closeLightbox = function() {
-    // 已修改：移除停止视频播放的逻辑
+    if (slideshowInterval) {
+        clearInterval(slideshowInterval);
+        slideshowInterval = null;
+        document.getElementById('slideshow-toggle').textContent = '▶️';
+    }
     lightbox.classList.remove('show');
     document.body.style.overflow = 'auto'; 
 };
 
+// 修改：添加键盘导航
 document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && lightbox.classList.contains('show')) {
-        closeLightbox();
+    if (lightbox.classList.contains('show')) {
+        if (e.key === 'Escape') {
+            closeLightbox();
+        } else if (e.key === 'ArrowRight') {
+            showNext();
+        } else if (e.key === 'ArrowLeft') {
+            showPrevious();
+        } else if (e.key === ' ') { // 空格键
+            e.preventDefault(); // 防止页面滚动
+            toggleSlideshow();
+        }
     }
 });
 
@@ -329,13 +389,10 @@ document.addEventListener('DOMContentLoaded', () => {
     setupControls(); 
     renderPhotoWall(); 
 
-    // 4. 新增：尝试播放背景音乐
     const bgMusic = document.getElementById('background-music');
     if (bgMusic) {
-        // 尝试播放，并捕获可能的浏览器阻止
         bgMusic.play().catch(error => {
             console.warn('背景音乐自动播放被阻止。等待用户交互。', error);
-            // 添加一个一次性点击事件，在用户首次点击页面时播放音乐
             document.body.addEventListener('click', () => {
                 if (bgMusic.paused) {
                     bgMusic.play();

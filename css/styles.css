@@ -35,7 +35,6 @@ html { scroll-behavior: smooth; }
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     text-align: center;
-    /* 已修改：移除顶部 padding，交由导航栏处理 */
     padding: 0 10px 20px;
     background-color: var(--color-background);
     color: var(--color-text);
@@ -95,7 +94,6 @@ body {
 h1 {
     font-family: 'Zhi Mang Xing', 'Sacramento', cursive, sans-serif; 
     color: var(--color-primary);
-    /* 已修改：调整上边距以适应导航栏 */
     margin: 20px 0 50px;
     font-size: 3.2em; 
     font-weight: normal; 
@@ -140,7 +138,6 @@ h1 {
     transform: translateY(-8px) rotate(1deg); 
 }
 
-/* 已修改：移除 video 选择器 */
 .photo-item img { 
     width: 100%;
     height: 100%;
@@ -152,8 +149,6 @@ h1 {
 .photo-item:hover img { 
     transform: scale(1.08);
 }
-
-/* 已删除：.photo-item.is-video::after 样式 */
 
 /* 定制化布局 */
 .photo-item.wide { grid-column: span 2; }
@@ -232,6 +227,7 @@ h1 {
 }
 
 .lightbox-content {
+    position: relative; /* 用于幻灯片按钮定位 */
     max-width: 90%;
     max-height: 90%;
     text-align: center;
@@ -244,7 +240,6 @@ h1 {
     margin: auto;
 }
 
-/* 已修改：移除 video 选择器 */
 .lightbox-media-container img { 
     display: block;
     max-width: 100%;
@@ -275,6 +270,58 @@ h1 {
 }
 
 /* ==================================== */
+/* 4. 新增：Lightbox 导航和幻灯片样式 */
+/* ==================================== */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 50px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+    user-select: none; /* 防止选择文本 */
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    z-index: 1001; /* 确保在内容之上 */
+}
+
+.nav-btn:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.nav-btn.prev {
+    left: 15px;
+}
+
+.nav-btn.next {
+    right: 15px;
+}
+
+.slideshow-controls {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.slideshow-btn {
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    font-size: 1.5em; /* 调整 emoji 大小 */
+    cursor: pointer;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    transition: all 0.3s ease;
+}
+
+.slideshow-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ==================================== */
 /* 媒体查询 (移动端适配) (无路径变化，保持不变) */
 /* ==================================== */
 @media (max-width: 600px) {
@@ -288,6 +335,16 @@ h1 {
         grid-row: span 1 !important;
         aspect-ratio: 1 / 1;
         border-width: 3px; 
+    }
+    
+    /* 移动端隐藏导航箭头 */
+    .nav-btn {
+        display: none;
+    }
+    
+    .lightbox-content {
+        max-width: 95%;
+        max-height: 95%;
     }
 }
 /* ==================================== */

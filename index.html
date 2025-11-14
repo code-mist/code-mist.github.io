@@ -26,7 +26,6 @@
     <nav class="main-nav">
         <ul>
             <li><a href="index.html" class="active-nav">✨ 首页</a></li>
-            <li><a href="#" class="active-nav">✨导航</a></li>
         </ul>
     </nav>
 
@@ -51,10 +50,18 @@
 
     <div id="lightbox" class="lightbox" onclick="closeLightbox()">
         <span class="close-btn" onclick="event.stopPropagation()">&times;</span>
+
+        <span class="nav-btn prev" onclick="event.stopPropagation(); showPrevious()">&lt;</span>
+        <span class="nav-btn next" onclick="event.stopPropagation(); showNext()">&gt;</span>
+
         <div class="lightbox-content" onclick="event.stopPropagation()">
             <div id="lightboxMediaContainer" class="lightbox-media-container">
                 </div>
             <p id="lightboxCaption" class="lightbox-caption"></p>
+
+            <div class="slideshow-controls">
+                <button id="slideshow-toggle" class="slideshow-btn" onclick="event.stopPropagation(); toggleSlideshow()">▶️</button>
+            </div>
         </div>
     </div>
 
