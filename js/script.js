@@ -1,7 +1,7 @@
 // =================================================================
-// ⭐️ 默认设置：通用视频封面图 (路径已修正) ⭐️
+// ⭐️ 默认设置 (已移除视频封面) ⭐️
 // =================================================================
-const DEFAULT_VIDEO_POSTER = 'assets/images/default-video-poster.jpg'; 
+// (DEFAULT_VIDEO_POSTER 已删除)
 
 // =================================================================
 // ⭐️ 照片数据列表 (所有 src 路径已修正)
@@ -158,386 +158,11 @@ const photos = [
     },
     
     
-    /* 下面为视频文件添加 */
-    { 
-        src: 'assets/videos/2025-02-28-001.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-002.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-003.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-004.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-005.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-006.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-007.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-008.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-009.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-010.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-011.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-012.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-013.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-014.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-015.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-016.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-017.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-018.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-019.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-020.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-021.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-022.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-023.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-024.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-025.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-026.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-027.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-028.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-029.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-030.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-031.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-032.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-033.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-034.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-035.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-036.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-037.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-038.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-039.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-040.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-041.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-042.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-043.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-044.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-045.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-046.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-047.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-048.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-049.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-050.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-051.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-052.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
-    { 
-        src: 'assets/videos/2025-02-28-053.mp4', 
-        caption: '', 
-        class: '',
-        tags: ['日常'],
-        type: 'video', 
-    },
+    /* 已删除：所有 type: 'video' 的条目 
+    */
 ];
 
-// 优化：为没有指定 type 的项添加默认值 'image'
-photos.forEach(p => {
-    if (!p.type) {
-        p.type = 'image';
-    }
-});
+// 已删除：用于设置默认 type 的 forEach 循环
 
 
 // =================================================================
@@ -582,7 +207,7 @@ function filterPhotos(data) {
     return data.filter(photo => photo.tags && photo.tags.includes(currentFilter));
 }
 
-// --- 主渲染函数：应用筛选和排序 (不变) ---
+// --- 主渲染函数：应用筛选和排序 (已简化) ---
 function renderPhotoWall() {
     let displayPhotos = [...photos]; 
     
@@ -598,17 +223,13 @@ function renderPhotoWall() {
 
     displayPhotos.forEach(photo => {
         const item = document.createElement('div');
-        item.className = `photo-item ${photo.class || ''} ${photo.type === 'video' ? 'is-video' : ''}`; 
+        // 已修改：移除 is-video 逻辑
+        item.className = `photo-item ${photo.class || ''}`; 
         item.tabIndex = 0; 
 
+        // 已修改：始终创建 img 元素
         let mediaElement = document.createElement('img'); 
-        
-        if (photo.type === 'video') {
-            mediaElement.src = DEFAULT_VIDEO_POSTER; 
-        } else {
-            mediaElement.src = photo.src;
-        }
-
+        mediaElement.src = photo.src;
         mediaElement.alt = photo.caption;
         mediaElement.loading = 'lazy'; 
         
@@ -674,52 +295,24 @@ function setupControls() {
 }
 
 
-// --- Lightbox 函数 (支持视频播放) ---
+// --- Lightbox 函数 (已简化为仅图片) ---
 function openLightbox(photo) {
     lightboxMediaContainer.innerHTML = '';
     lightboxCaption.textContent = photo.caption;
 
-    let mediaElement;
-    
-    if (photo.type === 'video') {
-        // Lightbox 中创建 <video> 元素
-        mediaElement = document.createElement('video');
-        mediaElement.src = photo.src;
-        mediaElement.poster = DEFAULT_VIDEO_POSTER; 
-        mediaElement.controls = true; 
-        mediaElement.autoplay = true; 
-        mediaElement.loop = true; 
-        
-        lightbox.classList.add('show');
-        document.body.style.overflow = 'hidden'; 
-        
-    } else {
-        // Lightbox 中创建 <img> 元素
-        mediaElement = document.createElement('img');
-        mediaElement.src = photo.src;
-        mediaElement.alt = photo.caption;
-        
-        mediaElement.onload = () => {
-            lightbox.classList.add('show');
-            document.body.style.overflow = 'hidden'; 
-        };
-
-        if (mediaElement.complete) {
-            lightbox.classList.add('show');
-            document.body.style.overflow = 'hidden';
-        }
-    }
+    // 已修改：始终创建 img 元素
+    let mediaElement = document.createElement('img');
+    mediaElement.src = photo.src;
+    mediaElement.alt = photo.caption;
     
     lightboxMediaContainer.appendChild(mediaElement);
+    
+    lightbox.classList.add('show');
+    document.body.style.overflow = 'hidden'; 
 }
 
 window.closeLightbox = function() {
-    // 关闭 Lightbox 时停止所有视频播放
-    lightboxMediaContainer.querySelectorAll('video').forEach(video => {
-        video.pause();
-        video.currentTime = 0; 
-    });
-    
+    // 已修改：移除停止视频播放的逻辑
     lightbox.classList.remove('show');
     document.body.style.overflow = 'auto'; 
 };
@@ -735,4 +328,19 @@ document.addEventListener('keydown', (e) => {
 document.addEventListener('DOMContentLoaded', () => {
     setupControls(); 
     renderPhotoWall(); 
+
+    // 4. 新增：尝试播放背景音乐
+    const bgMusic = document.getElementById('background-music');
+    if (bgMusic) {
+        // 尝试播放，并捕获可能的浏览器阻止
+        bgMusic.play().catch(error => {
+            console.warn('背景音乐自动播放被阻止。等待用户交互。', error);
+            // 添加一个一次性点击事件，在用户首次点击页面时播放音乐
+            document.body.addEventListener('click', () => {
+                if (bgMusic.paused) {
+                    bgMusic.play();
+                }
+            }, { once: true });
+        });
+    }
 });

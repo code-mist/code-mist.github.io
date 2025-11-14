@@ -35,17 +35,68 @@ html { scroll-behavior: smooth; }
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     text-align: center;
-    padding: 20px 10px;
+    /* 已修改：移除顶部 padding，交由导航栏处理 */
+    padding: 0 10px 20px;
     background-color: var(--color-background);
     color: var(--color-text);
     margin: 0;
     transition: background-color 0.5s;
 }
 
+/* ==================================== */
+/* 3. 新增：导航栏 (Navigation Bar) */
+/* ==================================== */
+.main-nav {
+    width: 100%;
+    background-color: #ffffff;
+    border-bottom: 2px solid var(--color-primary);
+    padding: 10px 20px;
+    box-sizing: border-box;
+    text-align: center;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.main-nav li {
+    display: inline-block;
+}
+
+.main-nav a {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--color-text);
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 1.1em;
+}
+
+.main-nav a:hover {
+    background-color: rgba(255, 173, 173, 0.1);
+    color: var(--color-primary);
+}
+
+.main-nav a.active-nav {
+    background-color: var(--color-primary);
+    color: white;
+    box-shadow: 0 2px 4px rgba(255, 173, 173, 0.4);
+}
+
 h1 {
     font-family: 'Zhi Mang Xing', 'Sacramento', cursive, sans-serif; 
     color: var(--color-primary);
-    margin: 30px 0 50px;
+    /* 已修改：调整上边距以适应导航栏 */
+    margin: 20px 0 50px;
     font-size: 3.2em; 
     font-weight: normal; 
     letter-spacing: 5px; 
@@ -89,8 +140,8 @@ h1 {
     transform: translateY(-8px) rotate(1deg); 
 }
 
-.photo-item img,
-.photo-item video { 
+/* 已修改：移除 video 选择器 */
+.photo-item img { 
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -98,28 +149,11 @@ h1 {
     transition: transform 0.5s ease-in-out; 
 }
 
-.photo-item:hover img,
-.photo-item:hover video { 
+.photo-item:hover img { 
     transform: scale(1.08);
 }
 
-.photo-item.is-video::after {
-    content: '▶️'; 
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 3em;
-    color: white;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-    opacity: 0.8;
-    pointer-events: none; 
-    transition: opacity 0.3s;
-}
-
-.photo-item.is-video:hover::after {
-    opacity: 1;
-}
+/* 已删除：.photo-item.is-video::after 样式 */
 
 /* 定制化布局 */
 .photo-item.wide { grid-column: span 2; }
@@ -210,8 +244,8 @@ h1 {
     margin: auto;
 }
 
-.lightbox-media-container img,
-.lightbox-media-container video { 
+/* 已修改：移除 video 选择器 */
+.lightbox-media-container img { 
     display: block;
     max-width: 100%;
     max-height: 80vh; 
