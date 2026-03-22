@@ -4,7 +4,7 @@
 
 # Site
 title: Jin-Blog
-avatar: 
+avatar: ./source/duola.jpg
 favicon: 
 subtitle: '记录生活与思考'
 description: '专注于个人成长与计算机技术的博客'
@@ -14,6 +14,12 @@ language:
   - zh-CN
   - en 
 timezone: 'Asia/Shanghai'
+
+# 文章类型 
+article:
+  type: tech # tech/story
+  share: [wechat, weibo, email, link]
+
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
@@ -107,7 +113,7 @@ theme: stellar
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
-# deploy:
+deploy:
 #   type: git
 #   repo: https://github.com/code-mist/code-mist.github.io  # 仓库地址
 #   branch: publish   # 发布分支，GitHub Pages 通常为 gh-pages 或 main（取决于你的设置）
