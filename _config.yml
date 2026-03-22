@@ -103,8 +103,8 @@ theme: stellar
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
-deploy:
-  type: git
-  repo: https://github.com/code-mist/code-mist.github.io  # 仓库地址
-  branch: publish   # 发布分支，GitHub Pages 通常为 gh-pages 或 main（取决于你的设置）
-  message: # 可选，提交信息
+# deploy:
+#   type: git
+#   repo: https://github.com/code-mist/code-mist.github.io  # 仓库地址
+#   branch: publish   # 发布分支，GitHub Pages 通常为 gh-pages 或 main（取决于你的设置）
+#   message: # 可选，提交信息
