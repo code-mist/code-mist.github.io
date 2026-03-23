@@ -4,7 +4,7 @@
 
 # Site
 title: Jin-Blog
-avatar: ./static/duola.jpg
+avatar: /static/duola.jpg
 favicon: 
 subtitle: '记录生活与思考'
 description: '专注于个人成长与计算机技术的博客'
