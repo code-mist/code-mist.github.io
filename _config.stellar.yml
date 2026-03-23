@@ -6,7 +6,9 @@
 title: Jin-Blog
 avatar: /static/duola.jpg
 favicon: /static/blog.ico
-subtitle: '记录生活与思考'
+# subtitle: '记录生活与思考'
+logo:
+  subtitle: '记录生活与思考 | 胡说八道' # '文字1 | 文字2' (鼠标放上去会切换到文字2)
 description: '专注于个人成长与计算机技术的博客'
 keywords: 后端, C, Cplusplus, SQL, Linux, 博客, 技术
 author: Vestjin
@@ -40,6 +42,16 @@ code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
 
+# 文章搜索
+search:
+  service: local_search # local_search, todo...
+  local_search:
+    field: all # post, page, all
+    path: /search.json # 搜索文件存放位置
+    content: true # 是否搜索内容
+    skip_search: [] # 指定 path 中的内容不被搜索。
+    codeblock: true # 是否搜索代码块（需要content: true)
+
 # Writing
 new_post_name: :title.md # File name of new posts
 default_layout: post
@@ -50,7 +62,7 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: true
+post_asset_folder: false
 relative_link: false
 future: true
 # 代码块高亮 hilight code sinapt

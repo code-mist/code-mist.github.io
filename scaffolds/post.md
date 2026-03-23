@@ -5,9 +5,9 @@ date: {{ date }}
 tags: []
 categories: []
 description: 
+hidden:
 
 # 插件
-sticky: # 数字越大越靠前
 mermaid:
 katex: 
 mathjax: 
