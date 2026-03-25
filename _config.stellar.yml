@@ -8,7 +8,7 @@ avatar: /static/duola.jpg
 favicon: /static/blog.ico
 # subtitle: '记录生活与思考'
 logo:
-  subtitle: '记录生活与思考 | 胡说八道' # '文字1 | 文字2' (鼠标放上去会切换到文字2)
+  subtitle: '我们永远不知道生活下一刻会发生什么 | 所以要时刻准备着' # '文字1 | 文字2' (鼠标放上去会切换到文字2)
 description: '专注于个人成长与计算机技术的博客'
 keywords: 后端, C, Cplusplus, SQL, Linux, 博客, 技术
 author: Vestjin
