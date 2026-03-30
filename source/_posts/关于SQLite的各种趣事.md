@@ -1,6 +1,8 @@
 ---
 title: 关于SQLite的趣事
-tags: notes
+tags: 
+categories: notes
+description: 关于SQLite的一些有趣的内容
 date: 2025-01-13 15:51:13
 ---
 
