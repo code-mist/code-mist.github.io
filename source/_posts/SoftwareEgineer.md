@@ -1,6 +1,8 @@
 ---
 title: 软件工程
-categories: homework
+categories: 
+tags: homework
+description: 软件工程课程笔记
 date: 2024-10-1
 ---
 
@@ -10,7 +12,9 @@ date: 2024-10-1
 
 
 
-[TOC](软件工程一门学不懂的)
+[TOC]
+
+
 
 
 
