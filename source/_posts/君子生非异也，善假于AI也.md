@@ -1,6 +1,6 @@
 ---
 title: 君子生非异也，善假于AI也
-date: 2026-03-31 08:30:36
+date: 2025-12-08 08:30:36
 tags:
 categories: article
 description: 两千多年前的智慧，道破了普通人的破局之道
