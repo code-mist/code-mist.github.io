@@ -35,6 +35,10 @@ categories:
 ```bash
 git config --global user.name "xxxxx"
 git config --global user.email "xxxxxx@xxx.com"
+git config --global alias.co checkout
+git config --global alias.br branch
+git config --global alias.st status
+git config --global alias.lg "log --oneline --graph --all"
 ```
 
 ## 02.Git 仓库
@@ -88,6 +92,36 @@ Git 文件 2 种状态：
 
 从暂存区移除文件，命令：`git rm --cached 目标文件`
 
+### 05.5 储藏(Stash)
+
+```cmd
+git stash                    # 暂存当前所有修改
+git stash save "说明"        # 带说明的暂存
+git stash list               # 查看暂存列表
+git stash pop                # 恢复最近的暂存并删除记录
+git stash apply stash@{0}    # 恢复指定暂存但不删除
+git stash drop stash@{0}     # 删除指定暂存
+git stash clear              # 清空所有暂存
+```
+
+### 05.6 撤销提交
+
+```markdown
+# 撤销工作区的修改（丢弃未暂存的改动）
+git checkout -- <file>       # 旧语法，仍常用
+git restore <file>           # 新语法（已有）
+
+# 撤销暂存区的修改（把文件从暂存区移回工作区，保留修改）
+git reset HEAD <file>        # 旧语法
+git restore --staged <file>  # 新语法
+
+# 修改最近一次提交（补充漏加的文件或修改说明）
+git commit --amend -m "新说明"
+git commit --amend --no-edit  # 不改说明，只追加修改
+```
+
+
+
 ## 0.6Git-切换版本
 
 概念：把版本库某个版本对应的内容快照，恢复到工作区/暂存区
@@ -98,17 +132,33 @@ Git 文件 2 种状态：
 
 回退命令：
 
-`git reset --soft 版本号`（其他文件未跟踪）
+`git reset --soft 版本号`（其他文件未跟踪）软重置-保留工作目录和暂存区的修改
 
-`git reset --hard 版本号`
+`git reset --hard 版本号`   硬重置-完全恢复到指定版本
 
-`git reset --mixed 版本号` （与 git reset 等价）
+`git reset --mixed 版本号` （与 git reset 等价）混合重置-保留工作目录，重置暂存区
 
 > [!CAUTION]
 >
 > 注意1：只有记录在版本库的提交记录才能恢复
 >
 > 注意2：回退后，继续修改->暂存->提交操作即可（产生新的提交记录过程）
+
+### 06.5 标签管理
+
+```cmd
+git tag                    # 查看所有标签
+git tag v1.0.0             # 轻量标签
+git tag -a v1.0.0 -m "说明" # 附注标签
+git show v1.0.0            # 查看标签信息
+git checkout v1.0.0        # 切换到标签对应版本
+git push origin v1.0.0     # 推送标签到远程
+git push origin --tags     # 推送所有标签
+git tag -d v1.0.0          # 删除本地标签
+git push origin :refs/tags/v1.0.0  # 删除远程标签
+```
+
+
 
 ## 07.忽略文件
 
@@ -141,6 +191,17 @@ Git 文件 2 种状态：
 > [!caution] 
 >
 > 注意：如果文件已经被暂存区跟踪过，可以从暂存区移除即可
+
+### 07.5 清理未跟踪文件
+
+```bash
+git clean -n                # 预览要删除的文件
+git clean -f                # 删除未跟踪的文件
+git clean -fd               # 删除未跟踪的文件和目录
+git clean -fdx              # 同时删除 .gitignore 中忽略的文件（慎用）
+```
+
+
 
 ## 08.分支的概念
 
@@ -243,22 +304,43 @@ merge test
 
 3.Node等软件版本统一，npm 包统一下载
 
+### 11.5 变基（Rebase) 
+
+```bash
+# 将当前分支变基到目标分支上
+git checkout feature
+git rebase master
+
+# 交互式变基（合并、修改、删除提交）
+git rebase -i HEAD~3
+
+# 变基冲突解决后继续
+git add .
+git rebase --continue
+
+# 放弃变基
+git rebase --abort
+```
+
+> 对比 merge 的优劣：历史整洁但不可对公共分支变基。
+
 ## 12.Git 常用命令
 
-| **命令**                   | **作用**                | **注意**                               |
-| -------------------------- | ----------------------- | -------------------------------------- |
-| `git -v`                   | 查看 git 版本           |                                        |
-| `git init`                 | 初始化 git 仓库         |                                        |
-| `git add 文件标识`         | 暂存某个文件            | 文件标识以终端为起始的相对路径         |
-| `git add .`                | 暂存所有文件            |                                        |
-| `git commit -m '说明注释'` | 提交产生版本记录        | 每次提交，把暂存区内容快照一份         |
-| `git status`               | 查看文件状态 - 详细信息 |                                        |
-| `git status -s`            | 查看文件状态 - 简略信息 | 第一列是暂存区状态，第二列是工作区状态 |
-| `git ls-files`             | 查看暂存区文件列表      |                                        |
-| `git restore 文件标识`     | 从暂存区恢复到工作区    | 如果文件标识为 . 则恢复所有文件        |
-| `git rm --cached 文件标识` | 从暂存区移除文件        | 不让 git 跟踪文件变化                  |
-| `git log`                  | 查看提交记录 - 详细信息 |                                        |
-| `git log --oneline`        | 查看提交记录 - 简略信息 | 版本号 分支指针 提交时说明注释         |
+| **命令**                          | **作用**                | **注意**                               |
+| --------------------------------- | ----------------------- | -------------------------------------- |
+| `git -v`                          | 查看 git 版本           |                                        |
+| `git init`                        | 初始化 git 仓库         |                                        |
+| `git add 文件标识`                | 暂存某个文件            | 文件标识以终端为起始的相对路径         |
+| `git add .`                       | 暂存所有文件            |                                        |
+| `git commit -m '说明注释'`        | 提交产生版本记录        | 每次提交，把暂存区内容快照一份         |
+| `git status`                      | 查看文件状态 - 详细信息 |                                        |
+| `git status -s`                   | 查看文件状态 - 简略信息 | 第一列是暂存区状态，第二列是工作区状态 |
+| `git ls-files`                    | 查看暂存区文件列表      |                                        |
+| `git restore 文件标识`            | 从暂存区恢复到工作区    | 如果文件标识为 . 则恢复所有文件        |
+| `git rm --cached 文件标识`        | 从暂存区移除文件        | 不让 git 跟踪文件变化                  |
+| `git log`                         | 查看提交记录 - 详细信息 |                                        |
+| `git log --oneline`               | 查看提交记录 - 简略信息 | 版本号 分支指针 提交时说明注释         |
+| `git log --oneline --graph --all` | 图形化显示所有分支历史  |                                        |
 
 | **命令**                 | **作用**                             | **注意**                                                     |
 | ------------------------ | ------------------------------------ | ------------------------------------------------------------ |
@@ -270,7 +352,10 @@ merge test
 | `git checkout 分支名`    | 切换分支                             |                                                              |
 | `git checkout -b 分支名` | 创建并立刻切换分支                   |                                                              |
 | `git merge 分支名`       | 把分支提交历史记录合并到当前所在分支 |                                                              |
-|                          |                                      |                                                              |
+| `git diff`               | 工作区 vs 暂存区                     | 详细差异                                                     |
+| `git diff --staged`      | 暂存区 vs 最近提交                   | 旧语法 `git diff --cached`                                   |
+| `git diff HEAD`          | 工作区 vs 最近提交                   |                                                              |
+| `git diff 分支1 分支2`   | 比较两个分支的差异                   |                                                              |
 
 ## 13.Git 远程仓库
 
@@ -297,6 +382,16 @@ merge test
 命令：`git push -u 远程仓库别名 本地和远程分支名`
 
 完整写法：`git push --set-upstream origin master:master`
+
+```cmd
+git branch -r                 # 查看远程分支
+git branch -a                 # 查看所有分支（本地+远程）
+git push origin --delete 分支名  # 删除远程分支
+git branch -d -r 远程分支名      # 删除本地对远程分支的追踪
+git checkout -b 本地分支 origin/远程分支  # 创建本地分支并追踪远程分支
+```
+
+
 
 ## 14.Git 远程仓库 - 克隆
 
@@ -345,3 +440,14 @@ merge test
 | `git push 远程仓库别名 分支名`             | 推送             | 完整写法：git push 远程仓库别名 本地分支名:远程分支名  -u：建立通道后以后可以简写 git push |
 | `git pull --rebase 远程仓库别名 分支名`    | 拉取合并         | 合并没有关系的记录                                           |
 | `git clone 远程仓库地址`                   | 克隆             | 从0得到一个远程的Git仓库到本地使用                           |
+
+## 21. 子模块Submodule
+
+```cmd
+git submodule add <仓库地址> 路径   # 添加子模块
+git submodule update --init --recursive  # 克隆后初始化子模块
+git submodule foreach git pull        # 更新所有子模块
+```
+
+
+
