@@ -6,4 +6,6 @@ tags:
 categories: 
 description: 
 hidden:
+mermaid:
+mathjax:
 ---
