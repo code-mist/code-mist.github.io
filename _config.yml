@@ -45,7 +45,26 @@ code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
 
-
+post:
+  math:
+    enable: true      # 开启数学公式
+    specific: false   # false=全局生效，true=需在文章front-matter指定
+    engine: mathjax   # 渲染引擎：mathjax 或 katex
+# Markdown 渲染器配置 (markdown-it)
+markdown:
+  preset: 'default'
+  render:
+    html: true
+    xhtmlOut: false
+    langPrefix: 'language-'
+    breaks: true
+    linkify: true
+    typographer: true
+  plugins:
+    - markdown-it-mathjax3
+# Mermaid tag
+mermaid:
+  enable: true
 # Writing
 new_post_name: :title.md # File name of new posts
 default_layout: post
