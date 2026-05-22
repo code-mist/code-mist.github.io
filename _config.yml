@@ -62,6 +62,11 @@ markdown:
     typographer: true
   plugins:
     - markdown-it-mathjax3
+    - name: markdown-it-anchor
+      level: 1-6  # 针对哪些级别的标题生效
+      permalink: true
+      permalinkBefore: true
+      permalinkSymbol: §
 # Mermaid tag
 mermaid:
   enable: true
