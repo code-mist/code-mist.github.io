@@ -2,7 +2,7 @@
 title: 我们不需要AI当管家，我们想要的是一座私人图书馆
 date: 2026-03-24 09:41:59
 tags:
-categories: 思考
+categories: deep
 description:
 hidden:
 ---
