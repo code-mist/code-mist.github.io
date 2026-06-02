@@ -2,7 +2,7 @@
 title: AIGC检测率如何降？
 date: 2025-12-12 19:35:34
 tags:
-categories: articles
+categories: article
 description: 学校用知网还是维普？扒一扒AIGC检测的“算法底牌”，这篇降AI率硬核指南请码住！
 hidden:
 ---
