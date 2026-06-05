@@ -952,3 +952,209 @@ public:
 
 ---
 
+### 泛型编程
+
+**泛型编程是一种编程方法，允许你编写可以处理多种数据类型的代码，而不需要为每种类型重复编写相同的逻辑。** 用一个通用的、与类型无关的方式来解决问题。
+
+---
+
+#### 泛型编程的核心思想
+
+不依赖于具体的数据类型，而是使用 **类型参数** 来代表任何数据类型。
+
+```cpp
+template<class T>  // T 是类型参数
+T min(T &a, T &b)
+{
+    return(a<b)?a:b;
+}
+```
+
+这个函数对 **所有支持比较运算符 `<` 的类型都有效**。
+
+---
+
+#### 泛型编程 vs 传统编程
+
+##### 传统编程（不使用泛型）
+
+```cpp
+// 为每种类型写一个函数
+int min_int(int a, int b) { return(a<b)?a:b; }
+float min_float(float a, float b) { return(a<b)?a:b; }
+double min_double(double a, double b) { return(a<b)?a:b; }
+char min_char(char a, char b) { return(a<b)?a:b; }
+
+int main()
+{
+    cout << min_int(5, 3);        // 调用 min_int
+    cout << min_float(5.5, 3.3);  // 调用 min_float
+    cout << min_double(5.5, 3.3); // 调用 min_double
+}
+```
+
+**问题：**
+- 代码重复很多
+- 难以维护
+- 如果要改逻辑，需要改所有函数
+- 容易出错
+
+---
+
+##### 泛型编程（使用模板）
+
+```cpp
+// 只需一个模板函数
+template<class T>
+T min(T &a, T &b)
+{
+    return(a<b)?a:b;
+}
+
+int main()
+{
+    cout << min(5, 3);           // T = int
+    cout << min(5.5, 3.3);       // T = float
+    cout << min('A', 'B');       // T = char
+}
+```
+
+**优点：**
+- 代码简洁
+- 易于维护
+- 逻辑改一次，所有类型都适用
+- 减少重复代码
+
+---
+
+#### 泛型编程的三种主要方式
+
+##### 1. 函数模板（Function Template）
+
+```cpp
+template<class T>
+T add(T a, T b)
+{
+    return a + b;
+}
+
+int main()
+{
+    cout << add(5, 3);      // T = int，输出 8
+    cout << add(5.5, 3.3);  // T = float，输出 8.8
+}
+```
+
+---
+
+##### 2. 类模板（Class Template）
+
+```cpp
+template<class T>
+class Box
+{
+private:
+    T value;
+public:
+    void setValue(T v) { value = v; }
+    T getValue() { return value; }
+};
+
+int main()
+{
+    Box<int> intBox;        // T = int
+    intBox.setValue(10);
+    cout << intBox.getValue();  // 输出 10
+
+    Box<string> strBox;     // T = string
+    strBox.setValue("Hello");
+    cout << strBox.getValue();  // 输出 Hello
+}
+```
+
+---
+
+##### 3. 模板特化（Template Specialization）
+
+```cpp
+// 通用模板
+template<class T>
+void print(T a)
+{
+    cout << "通用模板: " << a << endl;
+}
+
+// 特化模板（只针对 int）
+template<>
+void print<int>(int a)
+{
+    cout << "整数特化: " << a << endl;
+}
+
+int main()
+{
+    print(5);      // 输出: 整数特化: 5
+    print(5.5);    // 输出: 通用模板: 5.5
+    print("Hi");   // 输出: 通用模板: Hi
+}
+```
+
+---
+
+#### 泛型编程的优势
+
+| 优势         | 说明                         |
+| ------------ | ---------------------------- |
+| **代码重用** | 一个函数/类适用多种类型      |
+| **易于维护** | 改一次代码，所有类型都受益   |
+| **类型安全** | 编译时类型检查，运行时无误   |
+| **性能高**   | 编译时生成代码，无运行时开销 |
+| **灵活性**   | 支持任何支持相关运算符的类型 |
+
+---
+
+#### 泛型编程的限制
+
+```cpp
+template<class T>
+T divide(T a, T b)
+{
+    return a / b;  // 不是所有类型都支持 /
+}
+
+// 这样调用会出错：
+// divide("Hello", "World");  // 编译错误！字符串不支持除法
+```
+
+**泛型编程要求：** 传入的类型必须支持模板内使用的所有运算符。
+
+---
+
+#### 现实应用
+
+**C++ 标准库大量使用泛型编程：**
+
+```cpp
+#include<vector>
+#include<algorithm>
+using namespace std;
+
+int main()
+{
+    vector<int> intVec = {5, 2, 8, 1};
+    vector<string> strVec = {"dog", "cat", "bird"};
+    
+    // sort() 是通用模板，适用所有类型
+    sort(intVec.begin(), intVec.end());
+    sort(strVec.begin(), strVec.end());
+    
+    return 0;
+}
+```
+
+`vector` 和 `sort()` 都是泛型的，可以处理任何数据类型。
+
+---
+
+
+
