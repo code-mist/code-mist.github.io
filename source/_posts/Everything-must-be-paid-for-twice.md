@@ -1,7 +1,7 @@
 ---
 title: Everything must be paid for twice.
 tags: 
-categories: notes
+categories: article
 description: 买书如山倒，读书如抽丝？警惕生活中的“第二次代价”陷阱
 date: 2024-05-01 11:42:04
 ---
