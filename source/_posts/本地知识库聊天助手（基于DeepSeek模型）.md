@@ -1,6 +1,6 @@
 ---
 title: 本地知识库聊天助手（基于DeepSeek模型）
-categories: projects
+categories: project
 archive: true
 date: 2025-02-14 18:10:09
 tags:

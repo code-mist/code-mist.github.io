@@ -1,6 +1,6 @@
 ---
 title: 办公自动化PyQt
-categories: projects
+categories: project
 date: 2025-04-11 22:00:26
 tags:
 ---
