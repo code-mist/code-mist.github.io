@@ -2,7 +2,7 @@
 title: Git项目管理规范
 date: 2024-03-24 20:26:04
 tags: 
-categories: notes
+categories: note
 description: 总结Git的项目开发管理的规范与按照此规范进行开发。
 hidden:
 mathjax: 

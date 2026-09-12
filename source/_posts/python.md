@@ -1,6 +1,8 @@
 ---
 title: python
-tags: homework
+tags:
+categories: note
+description: python一些语法
 date: 2025-04-15
 ---
 
