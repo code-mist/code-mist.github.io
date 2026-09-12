@@ -1,8 +1,8 @@
 ---
 title: cpp questions
 date: 2026-04-11 20:26:04
-tags: question
-categories:
+tags: 
+categories: note
 description: record some knowlegdes that bad memory in learn cpp
 hidden:
 mathjax: 

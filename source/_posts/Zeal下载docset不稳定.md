@@ -1,8 +1,8 @@
 ---
 title: Zeal下载docset不稳定
 date: 2026-06-11 09:43:41
-tags: question
-categories:
+tags: 
+categories: note
 description: 关于国内在zeal官方源下载docset时不稳定，下载缓慢问题的解决方案。
 hidden:
 mermaid:

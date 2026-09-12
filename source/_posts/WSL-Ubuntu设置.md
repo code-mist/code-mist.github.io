@@ -1,8 +1,8 @@
 ---
 title: WSL-Ubuntu设置
 date: 2026-04-24 20:26:04
-tags: question
-categories:
+tags: 
+categories: note
 description: 在windows电脑上设置WSL并使用Ubuntu的记录。
 hidden:
 ---
