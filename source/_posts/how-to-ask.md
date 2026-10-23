@@ -2,7 +2,7 @@
 title: how to ask
 date: 2024-08-14 13:46:52
 tags: 
-categories: notes
+categories: note
 decription: 提问的智慧
 ---
 

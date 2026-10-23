@@ -1,7 +1,7 @@
 ---
 title: Markdown手册
 tags: 
-categories: notes
+categories: note
 date: 2023-12-11 07:33:37
 description: markdown语法整理
 mermaid: true

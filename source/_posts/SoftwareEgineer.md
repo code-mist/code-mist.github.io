@@ -1,7 +1,7 @@
 ---
 title: 软件工程
-categories: 
-tags: homework
+categories: note
+tags:
 description: 软件工程课程笔记
 date: 2024-10-1
 ---

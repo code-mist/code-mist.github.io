@@ -2,7 +2,7 @@
 title: Python代码规范与文档规范
 date: 2024-03-22 20:26:04
 tags: 
-categories: notes
+categories: note
 description: 总结一些Python的代码规范与文档规范按照此规范进行编码。
 hidden:
 mathjax: 

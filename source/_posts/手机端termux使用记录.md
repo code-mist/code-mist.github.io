@@ -1,6 +1,6 @@
 ---
 title: 手机端termux使用记录
-date: 2026-09-12 16:10:49
+date: 2026-08-12 16:10:49
 tags:
 categories: note
 description: termux笔记

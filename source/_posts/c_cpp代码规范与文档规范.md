@@ -2,7 +2,7 @@
 title: C/C++ 代码规范与文档规范
 date: 2024-03-21 20:26:04
 tags: 
-categories: notes
+categories: note
 description: 总结一些C/C++的代码规范与文档规范按照此规范进行编码。
 hidden:
 mathjax: 
