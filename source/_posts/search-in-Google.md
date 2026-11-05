@@ -1,7 +1,7 @@
 ---
 title: search in Google
 tags: 
-categories: tips
+categories: tip
 date: 2024-08-19 22:05:57
 description: 谷歌搜索的技巧
 ---

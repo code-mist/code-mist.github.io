@@ -1,7 +1,7 @@
 ---
 title: Gmail的两个技巧
 tags: 
-categories: tips
+categories: tip
 description: Gmail的两个技巧
 date: 2024-01-08 17:32:08
 
