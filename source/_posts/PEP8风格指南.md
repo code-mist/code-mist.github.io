@@ -2,7 +2,7 @@
 title: PEP8风格指南
 date: 2025-11-11 19:06:12
 tags: 
-categories: code
+categories: note
 description: Python编程的PEP8风格指南
 hidden:
 ---

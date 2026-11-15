@@ -2,7 +2,7 @@
 title: c-primer-plus6
 date: 2025-11-30 22:28:01
 tags:
-categories: code
+categories: note
 description: 书籍《C Primer PLus6》的总结章节
 hidden:
 ---

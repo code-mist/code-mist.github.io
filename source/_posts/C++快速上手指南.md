@@ -2,7 +2,7 @@
 title: C++快速上手指南
 date: 2025-05-30 22:29:46
 tags:
-categories: code
+categories: note
 description: C++快速了解 项目上手指南
 hidden:
 ---

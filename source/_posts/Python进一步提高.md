@@ -2,7 +2,7 @@
 title: Python进一步提高
 date: 2025-11-17 19:17:01
 tags:
-categories: code
+categories: note
 description: Python进一步提升的方向
 hidden:
 ---

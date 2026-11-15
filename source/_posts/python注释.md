@@ -1,6 +1,6 @@
 ---
 title: 演示Python注释的使用
-categories: code
+categories: note
 date: 2025-7-1
 description: 演示Python编程中的正确使用注释。
 ---

@@ -2,7 +2,7 @@
 title: Python之禅
 date: 2025-11-16 19:08:55
 tags:
-categories: code
+categories: note
 description: Python之禅的翻译
 hidden:
 ---

@@ -2,7 +2,7 @@
 title: Python参考书籍
 date: 2025-11-16 19:10:32
 tags:
-categories: code
+categories: note
 description: 学习Python的一些参考书籍
 hidden:
 ---
