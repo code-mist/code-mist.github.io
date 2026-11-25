@@ -1,0 +1,201 @@
+baseURL: "https://code-mist.github.io/"
+title: Jin-Blog
+defaultContentLanguage: en
+timeZone: Asia/Shanghai
+hasCJKLanguage: true
+theme: hugo-theme-stack
+enableGitInfo: true
+enableRobotsTXT: true
+
+# 禁掉构建期远程抓取（你之前确认过这是卡住的原因）
+security:
+  http:
+    urls:
+      - "none"
+
+pagination:
+  pagerSize: 12
+
+# 注意：为了对齐 Hexo 的 permalink，去掉了 /post/ 前缀
+# Hexo:  /:year/:month/:day/:title/   → URL 形如 /2024/01/01/文章/
+# Hugo:  /:year/:month/:day/:slug/    → 必须去掉 /post/ 前缀才一致
+permalinks:
+  post: /:year/:month/:day/:slug/
+  page: /:slug/
+disablePathToLower: true
+
+params:
+  description: "专注于个人成长与计算机技术的博客"
+  keywords: ["后端", "C", "Cplusplus", "SQL", "Linux", "博客", "技术"]
+  author: "Vestjin"
+  mainSections: ["post"]
+
+  # favicon 放在 static/blog.ico
+  favicon: "/blog.ico"
+  # 从 Hexo 迁移：全局关闭 RSS 全文，改为摘要（如需要全文改 true）
+  rssFullContent: true
+
+  # 阅读时间估算
+  article:
+    math: true          # 全局开启数学公式（Stack v4 默认用 KaTeX）
+    toc: true
+    readingTime: true   # 文章顶部显示预计阅读时间
+
+    # 许可证提示（Hexo Stellar 默认显示版权，这里也开启）
+    license:
+      enabled: true
+      default: "Licensed under CC BY-NC-SA 4.0"
+
+    # Mermaid 流程图渲染（对应 Hexo 的 mermaid.enable: true）
+    mermaid:
+      look: classic
+      lightTheme: default
+      darkTheme: dark
+
+    # 文章列表页
+    list:
+      showTags: true    # 对应 Hexo index 显示 tags
+
+  # 侧栏
+  sidebar:
+    subtitle: "我们永远不知道生活下一刻会发生什么"
+    avatar: "img/duola.jpg"          # 对应 assets/img/duola.jpg
+    emoji: ""                        # 不显示 emoji
+    compact: false
+
+  # 首页 widgets（对齐 Hexo 首页：搜索 + 归档 + 分类 + 标签云）
+  widgets:
+    homepage:
+      - type: search
+      - type: archives
+        params: { limit: 10 }
+      - type: categories
+        params: { limit: 10 }
+      - type: tag-cloud
+        params: { limit: 10 }
+    page:
+      - type: toc
+
+  # 日期格式（对齐 Hexo 的 YYYY-MM-DD 和 HH:mm:ss）
+  dateFormat:
+    published: 2006-01-02
+    lastUpdated: 2006-01-02 15:04
+
+  # 配色
+  colorScheme:
+    toggle: true
+    default: auto
+
+  # 页脚
+  footer:
+    since: 2023
+    customText: ""
+
+  # 评论（Hexo 未启用；保留空配置以后好开）
+  comments:
+    enabled: false
+    provider: "giscus"
+
+  # Open Graph / Twitter Card（Stack v4 需要，否则分享卡片不显示）
+  opengraph:
+    twitter:
+      site: ""
+      card: "summary_large_image"
+
+  # 图片处理（开启后 Stack 会对封面压缩转 WebP）
+  imageProcessing:
+    cover:
+      enabled: true
+    content:
+      enabled: false
+
+menu:
+  main:
+    - identifier: home
+      name: Home
+      url: /
+      weight: 10
+      params:
+        icon: home
+
+    - identifier: archives
+      name: Archives
+      url: /archives/
+      weight: 15
+      params:
+        icon: archives        
+
+    - identifier: categories
+      name: Categories
+      url: /categories/
+      weight: 20
+      params:
+        icon: categories     
+
+    - identifier: tags
+      name: Tags
+      url: /tags/
+      weight: 30
+      params:
+        icon: tag
+
+    - identifier: search
+      name: Search
+      url: /search/
+      weight: 40
+      params:
+        icon: search
+
+
+  social:
+    - identifier: email
+      name: Email
+      url: "mailto:jinmajue@qq.com"
+      weight: 10
+      params:
+        icon: mail
+
+    - identifier: github
+      name: GitHub
+      url: "https://github.com/vestjin"
+      weight: 30
+      params:
+        icon: brand-github
+
+    - identifier: rss
+      name: RSS
+      url: "/index.xml"
+      weight: 40
+      params:
+        icon: rss
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+    extensions:
+      passthrough:
+        enable: true
+        delimiters:
+          block:
+            - ['\[', '\]']
+            - ['$$', '$$']
+          inline:
+            - ['\(', '\)']
+            - ['$', '$']
+  highlight:
+    noClasses: false
+    codeFences: true
+    guessSyntax: true
+    lineNos: true
+    style: monokai         # 对齐 Hexo highlight.js 的风格
+    tabWidth: 4
+
+outputs:
+  home:
+    - HTML
+    - JSON
+    - RSS
+  page:
+    - HTML
+    - JSON

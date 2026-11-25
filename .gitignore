@@ -2,7 +2,10 @@
 Thumbs.db
 db.json
 *.log
-node_modules/
-public/
 .deploy*/
 _multiconfig.yml
+
+public/              # hugo 的输出目录，构建产物
+resources/      # Hugo Pipes 缓存（SCSS 编译缓存）
+.hugo_build.lock
+node_modules/

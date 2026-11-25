@@ -1,0 +1,150 @@
+<!doctype html><html lang=en dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="总结Git的项目开发管理的规范与按照此规范进行开发。"><title>Git项目管理规范</title><link rel=canonical href=https://code-mist.github.io/2024/03/24/Git%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E8%A7%84%E8%8C%83/><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=preload as=style href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"><link rel=stylesheet href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"><link rel=stylesheet href=/scss/style.min.5f20994fc2b22ec1b639c176124b729284351de3413205e73856538842f87adb.css><meta property='og:title' content="Git项目管理规范"><meta property='og:description' content="总结Git的项目开发管理的规范与按照此规范进行开发。"><meta property='og:url' content='https://code-mist.github.io/2024/03/24/Git%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E8%A7%84%E8%8C%83/'><meta property='og:site_name' content='Jin-Blog'><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:published_time' content='2024-03-24T20:26:04+08:00'><meta property='article:modified_time' content='2024-03-24T20:26:04+08:00'><meta name=twitter:title content="Git项目管理规范"><meta name=twitter:description content="总结Git的项目开发管理的规范与按照此规范进行开发。"><link rel=alternate type=application/json href=https://code-mist.github.io/2024/03/24/Git%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E8%A7%84%E8%8C%83/index.json><link rel="shortcut icon" href=/blog.ico></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/duola.jpg width=281 height=247 class=site-logo loading=lazy alt=Avatar></a></figure><div class=site-meta><h1 class=site-name><a href=/>Jin-Blog</a></h1><h2 class=site-description>我们永远不知道生活下一刻会发生什么</h2></div></header><ol class=menu-social><li><a href=mailto:jinmajue@qq.com title=Email rel=me><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7z"/><path d="M3 7l9 6 9-6"/></svg></a></li><li><a href=https://github.com/vestjin title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li><li><a href=/index.xml title=RSS rel=me><svg class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="5" cy="19" r="1"/><path d="M4 4a16 16 0 0116 16"/><path d="M4 11a9 9 0 019 9"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>Home</span></a></li><li><a href=/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>Archives</span></a></li><li><a href=/categories/><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>
+<span>Categories</span></a></li><li><a href=/tags/><svg class="icon icon-tabler icon-tabler-tag" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11 3l9 9a1.5 1.5.0 010 2l-6 6a1.5 1.5.0 01-2 0L3 11V7a4 4 0 014-4h4"/><circle cx="9" cy="9" r="2"/></svg>
+<span>Tags</span></a></li><li><a href=/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>Search</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>Dark Mode</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Table of contents</h2><div class=widget--toc><nav class=toc-nav id=TableOfContents><ul><li><a href=#1-目的>1. 目的</a></li><li><a href=#2-分支模型总览git-flow>2. 分支模型总览（Git Flow）</a><ul><li><a href=#21-分支说明>2.1 分支说明</a></li></ul></li><li><a href=#3-命名规范>3. 命名规范</a><ul><li><a href=#31-分支名>3.1 分支名</a></li><li><a href=#32-标签名>3.2 标签名</a></li><li><a href=#33-提交信息格式>3.3 提交信息格式</a></li></ul></li><li><a href=#4-分支操作详细流程>4. 分支操作详细流程</a><ul><li><a href=#41-feature-分支新功能>4.1 Feature 分支（新功能）</a></li><li><a href=#42-release-分支发布准备>4.2 Release 分支（发布准备）</a></li><li><a href=#43-hotfix-分支紧急修复>4.3 Hotfix 分支（紧急修复）</a></li></ul></li><li><a href=#5-提交与推送规范>5. 提交与推送规范</a><ul><li><a href=#51-原子性提交>5.1 原子性提交</a></li><li><a href=#52-提交前检查>5.2 提交前检查</a></li><li><a href=#53-推送前操作>5.3 推送前操作</a></li><li><a href=#54-禁止操作>5.4 禁止操作</a></li></ul></li><li><a href=#6-合并merge规范>6. 合并（Merge）规范</a><ul><li><a href=#61-prmr-流程>6.1 PR/MR 流程</a></li><li><a href=#62-合并策略>6.2 合并策略</a></li><li><a href=#63-冲突解决>6.3 冲突解决</a></li></ul></li><li><a href=#7-分支保护规则建议在-git-服务端设置>7. 分支保护规则（建议在 Git 服务端设置）</a></li><li><a href=#8-忽略文件规范>8. 忽略文件规范</a></li><li><a href=#9-常用命令速查>9. 常用命令速查</a></li><li><a href=#10-违规与纠正>10. 违规与纠正</a></li><li><a href=#11-附录git-配置推荐>11. 附录：Git 配置推荐</a></li></ul></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/note/ style=background-color:#efbeda;color:#3d0f2a>Note</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/2024/03/24/Git%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E8%A7%84%E8%8C%83/>Git项目管理规范</a></h2><h3 class=article-subtitle>总结Git的项目开发管理的规范与按照此规范进行开发。</h3></div><footer class=article-meta><div class=inline-meta><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published datetime=2024-03-24T20:26:04+08:00>2024-03-24</time>
+<svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>5 minutes read</time></div></footer></div></header><aside class=article-toc><details><summary><div class=article-toc-title><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6-6 6"/></svg>
+<span>Table of contents</span></div></summary><nav class=toc-nav><ul><li><a href=#1-目的>1. 目的</a></li><li><a href=#2-分支模型总览git-flow>2. 分支模型总览（Git Flow）</a><ul><li><a href=#21-分支说明>2.1 分支说明</a></li></ul></li><li><a href=#3-命名规范>3. 命名规范</a><ul><li><a href=#31-分支名>3.1 分支名</a></li><li><a href=#32-标签名>3.2 标签名</a></li><li><a href=#33-提交信息格式>3.3 提交信息格式</a></li></ul></li><li><a href=#4-分支操作详细流程>4. 分支操作详细流程</a><ul><li><a href=#41-feature-分支新功能>4.1 Feature 分支（新功能）</a></li><li><a href=#42-release-分支发布准备>4.2 Release 分支（发布准备）</a></li><li><a href=#43-hotfix-分支紧急修复>4.3 Hotfix 分支（紧急修复）</a></li></ul></li><li><a href=#5-提交与推送规范>5. 提交与推送规范</a><ul><li><a href=#51-原子性提交>5.1 原子性提交</a></li><li><a href=#52-提交前检查>5.2 提交前检查</a></li><li><a href=#53-推送前操作>5.3 推送前操作</a></li><li><a href=#54-禁止操作>5.4 禁止操作</a></li></ul></li><li><a href=#6-合并merge规范>6. 合并（Merge）规范</a><ul><li><a href=#61-prmr-流程>6.1 PR/MR 流程</a></li><li><a href=#62-合并策略>6.2 合并策略</a></li><li><a href=#63-冲突解决>6.3 冲突解决</a></li></ul></li><li><a href=#7-分支保护规则建议在-git-服务端设置>7. 分支保护规则（建议在 Git 服务端设置）</a></li><li><a href=#8-忽略文件规范>8. 忽略文件规范</a></li><li><a href=#9-常用命令速查>9. 常用命令速查</a></li><li><a href=#10-违规与纠正>10. 违规与纠正</a></li><li><a href=#11-附录git-配置推荐>11. 附录：Git 配置推荐</a></li></ul></nav></details></aside><section class=article-content><h1 id=git-使用规范文档基于-git-flow>Git 使用规范文档（基于 Git Flow）</h1><blockquote><p>版本：v1.0<br>适用范围：所有使用 Git 进行版本控制的项目<br>核心模型：Git Flow（<code>master</code> / <code>develop</code> / <code>feature</code> / <code>release</code> / <code>hotfix</code>）</p></blockquote><hr><h2 id=1-目的>1. 目的</h2><ul><li>统一团队的 Git 操作流程，降低协作成本。</li><li>保证代码历史清晰、可追溯、易于回滚与发布。</li><li>规范分支、提交信息、合并与发布策略。</li></ul><hr><h2 id=2-分支模型总览git-flow>2. 分支模型总览（Git Flow）</h2><div class=table-wrapper><table><thead><tr><th>分支类型</th><th>分支名示例</th><th>长期存在</th><th>来源</th><th>合并目标</th></tr></thead><tbody><tr><td><code>master</code></td><td><code>master</code></td><td>是</td><td>-</td><td>-（只接收 release/hotfix）</td></tr><tr><td><code>develop</code></td><td><code>develop</code></td><td>是</td><td>初始化时创建</td><td>无（接收 feature/release）</td></tr><tr><td><code>feature/*</code></td><td><code>feature/user-login</code></td><td>否</td><td><code>develop</code></td><td><code>develop</code></td></tr><tr><td><code>release/*</code></td><td><code>release/v1.2.0</code></td><td>否</td><td><code>develop</code></td><td><code>master</code> + <code>develop</code></td></tr><tr><td><code>hotfix/*</code></td><td><code>hotfix/payment-timeout</code></td><td>否</td><td><code>master</code></td><td><code>master</code> + <code>develop</code></td></tr></tbody></table></div><h3 id=21-分支说明>2.1 分支说明</h3><ul><li><strong><code>master</code> 分支</strong>：生产环境代码，永远保持稳定、可发布的状态。每次发布新版本时，由 <code>release</code> 或 <code>hotfix</code> 分支合并而来，并打上版本标签。</li><li><strong><code>develop</code> 分支</strong>：主开发分支，集成所有已完成的功能。代表最新的开发进度。</li><li><strong><code>feature/*</code> 分支</strong>：用于开发新功能。从 <code>develop</code> 创建，完成后合并回 <code>develop</code>。</li><li><strong><code>release/*</code> 分支</strong>：用于准备新版本发布。从 <code>develop</code> 创建，只允许修复性提交，完成后合并回 <code>master</code> 和 <code>develop</code>，并打标签。</li><li><strong><code>hotfix/*</code> 分支</strong>：用于紧急修复线上问题。从 <code>master</code> 创建，修复后合并回 <code>master</code> 和 <code>develop</code>，并打标签。</li></ul><hr><h2 id=3-命名规范>3. 命名规范</h2><h3 id=31-分支名>3.1 分支名</h3><ul><li>只允许小写字母、数字、短横线（<code>-</code>）、斜杠（<code>/</code>）。</li><li>格式：<code>类型/描述</code>。</li><li>示例：<ul><li><code>feature/pay-api</code></li><li><code>release/v1.2.0</code></li><li><code>hotfix/login-error</code></li></ul></li></ul><h3 id=32-标签名>3.2 标签名</h3><ul><li>格式：<code>v&lt;major>.&lt;minor>.&lt;patch></code>，如 <code>v2.1.0</code>。</li><li>遵循语义化版本（SemVer）。</li><li>每个发布到 <code>master</code> 的合并必须打标签（包括 release 和 hotfix）。</li></ul><h3 id=33-提交信息格式>3.3 提交信息格式</h3><p>采用 <strong>Conventional Commits</strong> 规范：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>&lt;类型&gt;(&lt;可选范围&gt;): &lt;主题&gt;
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>[可选的正文]
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>[可选的脚注]
+</span></span></code></pre></td></tr></table></div></div><p><strong>常见类型</strong>：</p><div class=table-wrapper><table><thead><tr><th>类型</th><th>说明</th></tr></thead><tbody><tr><td><code>feat</code></td><td>新功能</td></tr><tr><td><code>fix</code></td><td>修复 Bug</td></tr><tr><td><code>docs</code></td><td>仅文档修改</td></tr><tr><td><code>style</code></td><td>代码格式（不影响逻辑）</td></tr><tr><td><code>refactor</code></td><td>重构（不是新功能也不是修 Bug）</td></tr><tr><td><code>perf</code></td><td>性能优化</td></tr><tr><td><code>test</code></td><td>添加或修正测试</td></tr><tr><td><code>chore</code></td><td>构建/工具/依赖修改</td></tr></tbody></table></div><p>示例：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>feat(user): 添加手机号登录
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>- 支持手机号+验证码登录
+</span></span><span class=line><span class=cl>- 添加验证码发送接口
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Closes #123
+</span></span></code></pre></td></tr></table></div></div><hr><h2 id=4-分支操作详细流程>4. 分支操作详细流程</h2><h3 id=41-feature-分支新功能>4.1 Feature 分支（新功能）</h3><p><strong>创建</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>git checkout develop
+</span></span><span class=line><span class=cl>git pull --rebase
+</span></span><span class=line><span class=cl>git checkout -b feature/your-feature-name
+</span></span></code></pre></td></tr></table></div></div><p><strong>开发过程</strong></p><ul><li>每日至少同步一次 <code>develop</code> 的最新改动：<div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>git fetch origin
+</span></span><span class=line><span class=cl>git rebase origin/develop
+</span></span></code></pre></td></tr></table></div></div></li><li>保持原子提交，遵循提交信息规范。</li></ul><p><strong>完成并合并回 develop</strong><br>必须通过 Pull Request / Merge Request 进行 Code Review。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>git checkout develop
+</span></span><span class=line><span class=cl>git pull --rebase
+</span></span><span class=line><span class=cl>git merge --no-ff feature/your-feature-name
+</span></span><span class=line><span class=cl>git branch -d feature/your-feature-name
+</span></span><span class=line><span class=cl>git push origin develop
+</span></span></code></pre></td></tr></table></div></div><h3 id=42-release-分支发布准备>4.2 Release 分支（发布准备）</h3><p><strong>创建时机</strong>：<code>develop</code> 已达到可发布状态，且本次发布包含的功能点已就绪。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>git checkout develop
+</span></span><span class=line><span class=cl>git pull --rebase
+</span></span><span class=line><span class=cl>git checkout -b release/v1.2.0
+</span></span></code></pre></td></tr></table></div></div><p><strong>允许的操作</strong></p><ul><li>修复小 Bug</li><li>更新版本号、配置文件、文档</li><li>执行最终测试</li></ul><p><strong>禁止</strong> 在此分支上开发新功能。</p><p><strong>完成发布</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>git checkout master
+</span></span><span class=line><span class=cl>git merge --no-ff release/v1.2.0
+</span></span><span class=line><span class=cl>git tag -a v1.2.0 -m <span class=s2>&#34;Release version 1.2.0&#34;</span>
+</span></span><span class=line><span class=cl>git push origin master --tags
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>git checkout develop
+</span></span><span class=line><span class=cl>git merge --no-ff release/v1.2.0
+</span></span><span class=line><span class=cl>git branch -d release/v1.2.0
+</span></span><span class=line><span class=cl>git push origin develop
+</span></span></code></pre></td></tr></table></div></div><h3 id=43-hotfix-分支紧急修复>4.3 Hotfix 分支（紧急修复）</h3><p><strong>创建时机</strong>：线上 <code>master</code> 出现严重缺陷，需立即修复。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>git checkout master
+</span></span><span class=line><span class=cl>git pull --rebase
+</span></span><span class=line><span class=cl>git checkout -b hotfix/login-error
+</span></span></code></pre></td></tr></table></div></div><p><strong>修复及完成</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 修复完成后</span>
+</span></span><span class=line><span class=cl>git checkout master
+</span></span><span class=line><span class=cl>git merge --no-ff hotfix/login-error
+</span></span><span class=line><span class=cl>git tag -a v1.2.1 -m <span class=s2>&#34;Hotfix: fix login error&#34;</span>
+</span></span><span class=line><span class=cl>git push origin master --tags
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>git checkout develop
+</span></span><span class=line><span class=cl>git merge --no-ff hotfix/login-error
+</span></span><span class=line><span class=cl>git branch -d hotfix/login-error
+</span></span><span class=line><span class=cl>git push origin develop
+</span></span></code></pre></td></tr></table></div></div><blockquote><p>如果此时存在 <code>release</code> 分支，则需将 hotfix <strong>同时合并</strong> 到该 <code>release</code> 分支（而不是 <code>develop</code>），以确保 <code>release</code> 分支也包含该修复。</p></blockquote><hr><h2 id=5-提交与推送规范>5. 提交与推送规范</h2><h3 id=51-原子性提交>5.1 原子性提交</h3><ul><li>一次提交只做一件事。</li><li>不要将多个不相关的改动混在同一个提交中。</li></ul><h3 id=52-提交前检查>5.2 提交前检查</h3><ul><li>确保代码通过本地编译/测试。</li><li>使用 <code>git status</code> 检查多余文件（如 <code>.DS_Store</code>、<code>node_modules/</code>），应通过 <code>.gitignore</code> 排除。</li></ul><h3 id=53-推送前操作>5.3 推送前操作</h3><ul><li>先拉取最新代码：<code>git pull --rebase origin &lt;分支名></code>，避免产生多余的 merge 提交。</li><li>解决完冲突后使用 <code>git rebase --continue</code>。</li></ul><h3 id=54-禁止操作>5.4 禁止操作</h3><ul><li><strong>禁止</strong> 强制推送到共享分支（<code>develop</code>, <code>master</code>, <code>release/*</code>）。</li><li><strong>禁止</strong> 在公共分支上 <code>amend</code> 已推送的提交。</li></ul><hr><h2 id=6-合并merge规范>6. 合并（Merge）规范</h2><h3 id=61-prmr-流程>6.1 PR/MR 流程</h3><ul><li>所有合并进 <code>develop</code> 或 <code>master</code> 的代码必须通过 <strong>Pull Request / Merge Request</strong>。</li><li>PR 标题与提交信息应清晰说明改动内容。</li><li>PR 必须通过 CI 检查（至少编译+单测）。</li><li>至少 1 名 reviewer 批准后方可合并。</li></ul><h3 id=62-合并策略>6.2 合并策略</h3><ul><li>所有合并（feature → develop，release → master/develop，hotfix → master/develop）均使用 <code>--no-ff</code> 保留分支历史，方便追溯。</li><li>禁止使用 <code>--ff-only</code>。</li></ul><h3 id=63-冲突解决>6.3 冲突解决</h3><ul><li>在本地用 <code>git merge</code> 或 <code>git rebase</code> 解决冲突，不要在网页上直接点击“解决冲突”。</li><li>解决后再次运行测试。</li></ul><hr><h2 id=7-分支保护规则建议在-git-服务端设置>7. 分支保护规则（建议在 Git 服务端设置）</h2><div class=table-wrapper><table><thead><tr><th>分支</th><th>保护规则</th></tr></thead><tbody><tr><td><code>master</code></td><td>禁止直接推送；只允许通过 PR 合并；必须通过 CI + 至少 1 人批准</td></tr><tr><td><code>develop</code></td><td>禁止直接推送；只允许通过 PR 合并；必须通过 CI</td></tr><tr><td><code>release/*</code></td><td>允许维护者直接推送（仅限小型修复），建议仍走 PR</td></tr></tbody></table></div><hr><h2 id=8-忽略文件规范>8. 忽略文件规范</h2><p>必须配置 <code>.gitignore</code>，防止提交：</p><ul><li>编译产物（<code>*.class</code>、<code>*.o</code>、<code>dist/</code> 等）</li><li>依赖目录（<code>node_modules/</code>、<code>vendor/</code>）</li><li>环境配置文件（<code>.env</code>、<code>*.local</code>）</li><li>IDE 目录（<code>.idea/</code>、<code>.vscode/</code>、<code>*.swp</code>）</li><li>日志文件、临时文件</li></ul><hr><h2 id=9-常用命令速查>9. 常用命令速查</h2><div class=table-wrapper><table><thead><tr><th>操作</th><th>命令</th></tr></thead><tbody><tr><td>开始新功能</td><td><code>git checkout -b feature/xxx develop</code></td></tr><tr><td>同步 develop 到功能分支</td><td><code>git fetch origin && git rebase origin/develop</code></td></tr><tr><td>完成功能分支</td><td><code>git checkout develop && git merge --no-ff feature/xxx</code></td></tr><tr><td>开始发布</td><td><code>git checkout -b release/v1.2.0 develop</code></td></tr><tr><td>完成发布</td><td>（按 4.2 节步骤）</td></tr><tr><td>开始热修复</td><td><code>git checkout -b hotfix/xxx master</code></td></tr><tr><td>查看分支图</td><td><code>git log --oneline --graph --all</code></td></tr><tr><td>删除本地分支</td><td><code>git branch -d &lt;branch></code></td></tr><tr><td>删除远程分支</td><td><code>git push origin --delete &lt;branch></code></td></tr></tbody></table></div><hr><h2 id=10-违规与纠正>10. 违规与纠正</h2><p>若出现违规情况（如强制推送到共享分支、提交信息混乱）：</p><ul><li>由提交者立即纠正，并通过 <code>revert</code> 或 <code>reset</code> 恢复。</li><li>团队回顾会议讨论原因，避免重复发生。</li></ul><hr><h2 id=11-附录git-配置推荐>11. 附录：Git 配置推荐</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 别名</span>
+</span></span><span class=line><span class=cl>git config --global alias.co checkout
+</span></span><span class=line><span class=cl>git config --global alias.br branch
+</span></span><span class=line><span class=cl>git config --global alias.ci commit
+</span></span><span class=line><span class=cl>git config --global alias.st status
+</span></span><span class=line><span class=cl>git config --global alias.lg <span class=s2>&#34;log --oneline --graph --all&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 自动处理行尾（Windows / Mac / Linux）</span>
+</span></span><span class=line><span class=cl>git config --global core.autocrlf input
+</span></span></code></pre></td></tr></table></div></div><hr><blockquote><p>📌 本规范为强制标准，如有特殊情况需调整，须经团队评审并更新本文档。</p></blockquote><hr></section><footer class="article-meta article-footer"><section class="article-copyright inline-meta"><svg class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span></section></footer><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css integrity=sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js integrity=sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js integrity=sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05 crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{const e=[".main-article",".widget--toc"];e.forEach(e=>{const t=document.querySelector(e);t&&renderMathInElement(t,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}],ignoredClasses:["gist"]})})})</script></article><footer class=site-footer><section class=copyright>&copy;
+2023 -
+2026 Jin-Blog</section><section class=powerby>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=4.0.3>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a></section></footer><script type=module>
+    import gallery from '\/ts\/gallery.js';
+
+    const articleContent = document.querySelector('.article-content');
+    const shouldLoad = articleContent && (articleContent.querySelectorAll('figure').length > 0 || articleContent.querySelectorAll('img.gallery-image').length > 0);
+    
+    if (shouldLoad) {
+        gallery(articleContent);
+
+        const PhotoSwipeLightbox = (await import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js")).default;
+        const styleHref = "https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.css";
+
+        const styleTag = document.createElement('link');
+        styleTag.rel = 'stylesheet';
+        styleTag.href = styleHref;
+        document.head.appendChild(styleTag);
+
+        const lightbox = new PhotoSwipeLightbox({
+            gallerySelector: '.article-content',
+            childSelector: 'figure a.image-link',
+            pswpModule: () => import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js")
+        });
+        lightbox.init();
+    }
+</script></main></div><script type=text/javascript src=/ts/main.1ff1e5fdc4e178ed422e50aa407526dc552f26342d729343fded19416194382c.js defer></script></body></html>
