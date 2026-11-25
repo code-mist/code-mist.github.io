@@ -1,7 +1,11 @@
 version: 2
 updates:
-- package-ecosystem: npm
-  directory: "/"
-  schedule:
-    interval: daily
-  open-pull-requests-limit: 20
+  - package-ecosystem: github-actions   # ← 换成这个
+    directory: "/"
+    schedule:
+      interval: weekly                  # 博客不用 daily，weekly 够了
+    open-pull-requests-limit: 5
+    groups:
+      actions-minor:
+        patterns: ["*"]
+        update-types: [minor, patch]    # 小版本自动合并成一个 PR，不刷屏
