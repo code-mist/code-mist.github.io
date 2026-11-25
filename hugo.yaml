@@ -93,9 +93,20 @@ params:
 
   # 评论（Hexo 未启用；保留空配置以后好开）
   comments:
-    enabled: false
-    provider: "giscus"
+    enabled: true
+    provider: giscus
 
+    giscus:
+      repo: code-mist/code-mist.github.io
+      repoId: R_kgDORtXY_A          # 从 giscus.app 生成的脚本中获取
+      category: General
+      categoryId: DIC_kwDORtXY_M4DL6iY   # 同上
+      mapping: pathname               # 可选：pathname / url / title / og:title
+      reactionsEnabled: true
+      emitMetadata: false
+      inputPosition: bottom           # 可选：top / bottom
+      lang: zh-CN                     # 语言
+      loading: lazy                   # 可选：lazy / eager
   # Open Graph / Twitter Card（Stack v4 需要，否则分享卡片不显示）
   opengraph:
     twitter:
