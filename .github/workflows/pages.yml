@@ -18,41 +18,41 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      HUGO_VERSION: 0.170.1        # = 你本地 hugo version ✅
-      DART_SASS_VERSION: 1.108.2   # = 你本地 sass --version ✅
+      HUGO_VERSION: 0.170.1
+      DART_SASS_VERSION: 1.108.2
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6            # v4 → v6
         with:
           submodules: recursive
-          fetch-depth: 0           # Stack 用 GitInfo 算 lastmod
+          fetch-depth: 0
 
       - name: Setup Hugo (with Dart Sass)
-        uses: peaceiris/actions-hugo@v3
+        uses: peaceiris/actions-hugo@v3      # 没被点名，保持不动
         with:
           hugo-version: ${{ env.HUGO_VERSION }}
           dart-sass-version: ${{ env.DART_SASS_VERSION }}
-          # ⚠️ 不要写 extended: true —— 0.170 已合并单二进制 
 
-      - name: Verify toolchain     # 把编译链路打进日志，出事一眼定位
+      - name: Verify toolchain
         run: |
-          hugo version             # 应无 +extended，正常输出即可
-          hugo env                 # 必须能看到 github.com/sass/dart-sass/compiler
+          hugo version
+          hugo env
 
       - name: Configure Pages
         id: pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6     # v5 → v6
 
       - name: Build with Hugo
         env:
           HUGO_ENVIRONMENT: production
           HUGO_ENV: production
-        run: hugo --gc --minify    # baseURL 用 hugo.yaml 里写死的 https，别再传 --baseURL
+        run: hugo --gc --minify --logLevel error
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4   # v3 已弃用 → v4
+        uses: actions/upload-pages-artifact@v5   # v4 → v5
         with:
           path: ./public
+          include-hidden-files: true        # ⚠️ v4+ 默认丢点文件，博客若有 .well-known 等要加
 
   deploy:
     environment:
@@ -63,4 +63,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5       # v4 → v5
