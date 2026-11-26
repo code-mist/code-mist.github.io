@@ -1,17 +1,34 @@
 baseURL: "https://code-mist.github.io/"
+canonifyURLs: true       # 自动将相对URL转为绝对URL，SEO友好
+relativeURLs: false      # 保持绝对URL
 title: Jin-Blog
 defaultContentLanguage: en
+locale: zh-CN
+
 timeZone: Asia/Shanghai
 hasCJKLanguage: true
 theme: hugo-theme-stack
 enableGitInfo: true
 enableRobotsTXT: true
 
-# 禁掉构建期远程抓取（你之前确认过这是卡住的原因）
+# 站点地图
+sitemap:
+  changefreq: weekly
+  filename: sitemap.xml
+  priority: 0.5
+# 禁掉构建期远程抓取（确认过这是卡住的原因）
 security:
   http:
     urls:
-      - "none"
+      - "none"          # 这行保留，是为了禁远程抓取
+
+  exec:
+    allow:
+      - "^dart-sass$"
+      - "^go$"
+      - "^git$"
+      - "^node$"
+      - "^postcss$"
 
 pagination:
   pagerSize: 12
@@ -90,6 +107,11 @@ params:
   footer:
     since: 2023
     customText: ""
+  print:
+    enabled: true          # 启用打印友好版
+    margin: 20mm
+    fontSize: 12pt
+
 
   # 评论（Hexo 未启用；保留空配置以后好开）
   comments:
@@ -119,6 +141,11 @@ params:
       enabled: true
     content:
       enabled: false
+
+    # CDN 加速（如果有 jsDelivr 或其他）
+  cdn:
+    enabled: true
+    baseURL: "https://cdn.jsdelivr.net/npm/hugo-theme-stack@latest"
 
 menu:
   main:
