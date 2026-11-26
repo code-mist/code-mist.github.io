@@ -229,11 +229,28 @@ markup:
     style: monokai         # 对齐 Hexo highlight.js 的风格
     tabWidth: 4
 
+# 定义 Stack 专用的搜索索引输出格式
+outputFormats:
+  searchIndex:
+    mediaType: application/json
+    baseName: search-index
+    isPlainText: true
+    notAlternative: true
+
+# 声明哪些页面类型要生成哪些输出
 outputs:
   home:
     - HTML
-    - JSON
+    - searchIndex
     - RSS
   page:
     - HTML
-    - JSON
+  section:
+    - HTML
+    - RSS
+  taxonomy:
+    - HTML
+    - RSS
+  term:
+    - HTML
+    - RSS
