@@ -25,6 +25,7 @@ security:
   exec:
     allow:
       - "^dart-sass$"
+      - "^sass$"          # ← 新增这一行
       - "^go$"
       - "^git$"
       - "^node$"
